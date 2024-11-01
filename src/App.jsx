@@ -1,19 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 const todoList = [
   {
-    id: 1,
+    objectId: '1',
     title: "Start assignment"
   }, 
   {
-    id: 2,
+    objectId: '2',
     title: "Run assignment"
   }, 
   {
-    id: 3,
+    objectId: '3',
     title: "Complete assignment"    
   }
 ];
@@ -23,12 +20,7 @@ function App() {
       <div>
         <h1>Todo List</h1>
         <ul>
-           {
-            todoList.map(item => {
-                                   return <li id = {item.id}>{item.title}</li>
-                                 }
-            )
-           }
+           {todoList.map(item => <li key = {item.objectId}>{item.title}</li>)}
         </ul>
       </div> 
   )
