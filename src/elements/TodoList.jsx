@@ -1,4 +1,4 @@
-import { TASKS } from "../data/ui.jsx";
+import { TASKS } from "../data/dummy.jsx";
 
 const TodoList = () => {
   return (
