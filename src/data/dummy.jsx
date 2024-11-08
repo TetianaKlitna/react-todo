@@ -1,4 +1,4 @@
-export const todoList = [
+export const TASKS = [
   {
     id: 1,
     title: "Start assignment",
