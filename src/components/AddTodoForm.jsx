@@ -3,7 +3,7 @@ const AddTodoForm = () => {
     <form>
       <label htmlFor="todoTitle">Title: </label>
       <input id="todoTitle" type="text" />
-      <button type="button" id="submitButton">
+      <button type="submit" id="submitButton">
         Submit
       </button>
     </form>
