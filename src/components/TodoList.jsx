@@ -1,10 +1,11 @@
 import { TASKS } from "../data/dummy.jsx";
+import TodoListItem from "./TodoListItem.jsx";
 
 const TodoList = () => {
   return (
     <ul>
-      {TASKS.map((item) => (
-        <li key={item.id}>{item.title}</li>
+      {TASKS.map((task) => (
+        <TodoListItem key={task.id} item={task} />
       ))}
     </ul>
   );
