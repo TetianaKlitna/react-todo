@@ -10,8 +10,14 @@ const AddTodoForm = ({ onAddTodo }) => {
 
   const handleAddTodo = (e) => {
     e.preventDefault();
-    onAddTodo({ id: Date.now(), title: todoTitle });
-    setTodoTitle("");
+    const title = todoTitle.trim();
+    if(title !== ""){
+      onAddTodo({ id: Date.now(), title: title });
+      setTodoTitle("");
+    }else{
+      alert("Fill out title field");
+    }
+   
   };
 
   return (
