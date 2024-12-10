@@ -15,11 +15,16 @@ function App() {
     setTodoList(newToDoList);
   };
 
+  const handleRemove = (id) => {
+     const newToDoList = todoList.filter(item => item.id !== id);
+     setTodoList(newToDoList);
+  }
+
   return (
     <Fragment>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} onRemoveItem={handleRemove}/>
     </Fragment>
   );
 }
