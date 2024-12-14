@@ -3,7 +3,8 @@ import InputWithLabel from "./InputWithLabel";
 
 const AddTodoForm = ({ onAddTodo }) => {
   const [todoTitle, setTodoTitle] = useState("");
-  const inputRef = useRef();
+  const isFocused = true;
+  const ref = useRef(null);
 
   const handleTitleChange = (event) => {
     const newTodoTitle = event.target.value;
@@ -16,25 +17,21 @@ const AddTodoForm = ({ onAddTodo }) => {
     if (title) {
       onAddTodo({ id: Date.now(), title: title });
       setTodoTitle("");
+      ref.current.focus();
     } else {
       alert("Fill out title field");
     }
-
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-   
   };
 
   return (
     <form onSubmit={handleAddTodo}>
       <InputWithLabel
-        inputRef = {inputRef}
+        ref={ref}
         id="todoTitle"
         name="title"
         value={todoTitle}
-        isFocused = "true"
         onInputChange={handleTitleChange}
+        isFocused={isFocused}
       >
         <strong>Title:</strong>
       </InputWithLabel>

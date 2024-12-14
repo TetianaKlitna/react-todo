@@ -1,27 +1,20 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, forwardRef, useEffect } from "react";
 
-const InputWithLabel = ({
-  inputRef,
-  id,
-  name,
-  type = "text",
-  value,
-  isFocused,
-  onInputChange,
-  children,
-}) => {
-
+const InputWithLabel = forwardRef(function InputWithLabel(
+  { id, name, type = "text", value, onInputChange, children, isFocused },
+  ref
+) {
   useEffect(() => {
-    if (isFocused && inputRef.current) {
-        inputRef.current.focus();
+    if (isFocused) {
+      ref.current.focus();
     }
   }, [isFocused]);
-    
+
   return (
     <Fragment>
       <label htmlFor={id}>{children}</label>
       <input
-        ref = {inputRef}
+        ref={ref}
         id={id}
         name={name}
         type={type}
@@ -30,6 +23,6 @@ const InputWithLabel = ({
       ></input>
     </Fragment>
   );
-};
+});
 
 export default InputWithLabel;

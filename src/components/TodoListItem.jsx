@@ -3,7 +3,7 @@ const TodoListItem = ({ item, onRemoveTodo }) => {
     <li>
       <button onClick={() => onRemoveTodo(item.id)}>
         <strong>X</strong>
-      </button>   
+      </button>
       {item.title}
     </li>
   );

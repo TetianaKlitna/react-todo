@@ -4,7 +4,7 @@ const TodoList = ({ todoList, onRemoveItem }) => {
   return (
     <ul>
       {todoList.map((task) => (
-        <TodoListItem key={task.id} item={task} onRemoveTodo = {onRemoveItem}/>
+        <TodoListItem key={task.id} item={task} onRemoveTodo={onRemoveItem} />
       ))}
     </ul>
   );
