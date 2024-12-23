@@ -23,8 +23,7 @@ function App() {
         setIsLoading(true);
         setTodoList(result.data.todoList);
         setIsLoading(false);
-      })
-      .catch(() => {});
+      });
   }, []);
 
   useEffect(() => {
