@@ -20,7 +20,6 @@ function App() {
       );
     })
       .then((result) => {
-        setIsLoading(true);
         setTodoList(result.data.todoList);
         setIsLoading(false);
       });
@@ -30,7 +29,7 @@ function App() {
     if (!isLoading) {
       localStorage.setItem("savedTodoList", JSON.stringify(todoList));
     }
-  }, [todoList, isLoading]);
+  }, [todoList]);
 
   const addTodo = (newTodo) => {
     const newToDoList = [...todoList, newTodo];
