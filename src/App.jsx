@@ -12,7 +12,7 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = useCallback(async () => {
+  const fetchData = async () => {
     const options = {
       method: "GET",
       headers: {
@@ -45,7 +45,7 @@ function App() {
       setIsLoading(false);
     }
     
-  }, []);
+  };
 
   const removeTodo = async (todo) => {
     const deleteRecords = `?records[]=${todo.id}`;
