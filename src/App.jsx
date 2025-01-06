@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment, useState, useEffect, useCallback } from "react";
+import { Fragment, useState, useEffect } from "react";
 import TodoList from "./components/TodoList.jsx";
 import AddTodoForm from "./components/AddTodoForm.jsx";
 
