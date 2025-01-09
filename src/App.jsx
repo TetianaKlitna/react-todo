@@ -47,38 +47,12 @@ function App() {
     
   };
 
-  const removeTodo = async (todo) => {
-    const deleteRecords = `?records[]=${todo.id}`;
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    const options = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
-      },
-    };
-
-    try {
-      const response = await fetch(url + deleteRecords, options);
-
-      if (!response.ok) {
-        const message = `Error has ocurred: ${response.error}`;
-        throw new Error(message);
-      }
-
-      const data = await response.json();
-      const deletedIds = data.records.map(item => item.id);
-      const newToDoList = todoList.filter((item) => !deletedIds.includes(item.id));
-      setTodoList(newToDoList);
-      console.log(`Removed record with id: ${todo.id} title: ${todo.title}`);
-
-
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const postTodo = async (todo) => {
+  const handlePostTodo = async (todo) => {
+    
     const todoData = {
       fields: {
         title: todo.title,
@@ -116,28 +90,49 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const addTodo = (newTodo) => {
-    postTodo(newTodo);
-  };
-
-  const handleRemove = (todo) => {
-    removeTodo(todo);
+  const handleRemoveTodo = async (todo) => {
+    
+      const deleteRecords = `?records[]=${todo.id}`;
+  
+      const options = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+        },
+      };
+  
+      try {
+        const response = await fetch(url + deleteRecords, options);
+  
+        if (!response.ok) {
+          const message = `Error has ocurred: ${response.error}`;
+          throw new Error(message);
+        }
+  
+        const data = await response.json();
+        const deletedIds = data.records.map(item => item.id);
+        const newToDoList = todoList.filter((item) => !deletedIds.includes(item.id));
+        setTodoList(newToDoList);
+        console.log(`Removed record with id: ${todo.id} title: ${todo.title}`);
+  
+  
+      } catch (error) {
+        console.log(error.message);
+      }
+    
   };
 
   return (
     <Fragment>
       <h1>Todo List</h1>
-      <AddTodoForm onAddTodo={addTodo} />
+      <AddTodoForm onPostItem={handlePostTodo} />
       {isLoading ? (
         <p>
           <strong>Loading...</strong>
         </p>
       ) : (
-        <TodoList todoList={todoList} onRemoveItem={handleRemove} />
+        <TodoList todoList={todoList} onRemoveItem={handleRemoveTodo} />
       )}
     </Fragment>
   );
