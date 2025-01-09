@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import InputWithLabel from "./InputWithLabel";
 
-const AddTodoForm = ({ onAddTodo }) => {
+const AddTodoForm = ({ onPostItem }) => {
   const [todoTitle, setTodoTitle] = useState("");
   const isFocused = true;
   const ref = useRef(null);
@@ -15,7 +15,7 @@ const AddTodoForm = ({ onAddTodo }) => {
     e.preventDefault();
     const title = todoTitle.trim();
     if (title) {
-      onAddTodo({ id: Date.now(), title: title });
+      onPostItem({ id: Date.now(), title: title });
       setTodoTitle("");
       ref.current.focus();
     } else {
