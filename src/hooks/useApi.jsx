@@ -5,7 +5,8 @@ const useApi = () => {
 
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState("");
+  const [isError, setIsError] = useState(false);
+  const [addedTodo, setAddedTodo] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -28,6 +29,7 @@ const useApi = () => {
     setIsLoading(true);
     try {
       const addedTodo = await addTodo(item); 
+      setAddedTodo(addedTodo);
       const newTodoList = [...todoList, addedTodo];
       setTodoList(newTodoList);
     } catch (err) {
@@ -53,7 +55,7 @@ const useApi = () => {
   };
 
 
-  return { todoList, isLoading, isError, fetchData, postData, deleteData};
+  return { todoList, addedTodo, isLoading, isError, fetchData, postData, deleteData};
 };
 
 export default useApi;
