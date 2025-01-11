@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 function ViewTodoDetails() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { todos } = location.state || {}; // Extract the user from state
+  const { todos } = location.state || {};
 
   if (!todos) {
     return <div>No Todo details found</div>;
