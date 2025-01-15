@@ -1,6 +1,4 @@
-const urlEndpoint = `https://api.airtable.com/v0/${
-  import.meta.env.VITE_AIRTABLE_BASE_ID
-}/${encodeURIComponent(import.meta.env.VITE_TABLE_NAME)}`;
+const urlEndpoint = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${encodeURIComponent(import.meta.env.VITE_TABLE_NAME)}`;
 
 async function apiRequest(options, url = urlEndpoint) {
   const response = await fetch(url, options);
