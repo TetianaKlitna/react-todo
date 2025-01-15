@@ -17,6 +17,7 @@ const useApi = () => {
     try {
       const loadedTodoList = await getTodos();
       setTodoList(loadedTodoList);
+      setIsError(false);
     } catch (err) {
       console.log(err.message);
       setIsError(true);
@@ -32,6 +33,7 @@ const useApi = () => {
       setAddedTodo(addedTodo);
       const newTodoList = [...todoList, addedTodo];
       setTodoList(newTodoList);
+      setIsError(false);
     } catch (err) {
       console.log(err.message);
       setIsError(true);
@@ -46,6 +48,7 @@ const useApi = () => {
       const deletedIds = await deleteTodo(item); 
       const newToDoList = todoList.filter((item) => !deletedIds.includes(item.id));
       setTodoList(newToDoList);
+      setIsError(false);
     } catch (err) {
       console.log(err.message);
       setIsError(true);

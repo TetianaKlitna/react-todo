@@ -1,16 +1,12 @@
 import { Fragment, useState, useMemo } from "react";
 import TodoList from "../components/TodoList.jsx";
-import AddTodoForm from "../components/AddTodoForm.jsx";
+import NavBar from "../components/NavBar.jsx";
 import SearchForm from "../components/SearchForm.jsx";
 import useApi from "../hooks/useApi.jsx";
 
 function TodoContainer() {
   const [searchTerm, setSearchTerm] = useState("");
-  const { todoList, isLoading, isError, postData, deleteData } = useApi();
-
-  const handlePostTodo = (todo) => {
-    postData(todo);
-  };
+  const { todoList, isLoading, isError, deleteData } = useApi();
 
   const handleRemoveTodo = (todo) => {
     deleteData(todo);
@@ -27,26 +23,30 @@ function TodoContainer() {
     );
   }, [todoList, searchTerm]);
 
-  if (isError) {
-    return (
-      <div>
-        <strong>Something goes wrong...</strong>
-      </div>
-    );
-  }
-
   return (
     <Fragment>
       <h1>Todo List</h1>
-      <AddTodoForm onPostItem={handlePostTodo} />
+      <NavBar />
       <hr />
       <SearchForm setNewFilter={setSearchTerm} />
       {isLoading ? (
         <p>
           <strong>Loading...</strong>
         </p>
+      ) : isError ? (
+        <p>Something goes wrong...</p>
       ) : (
-        <TodoList todoList={filteredTodos} onRemoveItem={handleRemoveTodo} />
+        <div>
+          {searchTerm && <p>Filter applied: {searchTerm} </p>}
+          {!filteredTodos.length ? (
+            <p>No results found with the applied filters</p>
+          ) : (
+            <TodoList
+              todoList={filteredTodos}
+              onRemoveItem={handleRemoveTodo}
+            />
+          )}
+        </div>
       )}
     </Fragment>
   );

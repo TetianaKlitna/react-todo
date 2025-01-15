@@ -3,18 +3,16 @@ const urlEndpoint = `https://api.airtable.com/v0/${
 }/${encodeURIComponent(import.meta.env.VITE_TABLE_NAME)}`;
 
 async function apiRequest(options, url = urlEndpoint) {
-  
-    const response = await fetch(url, options);
+  const response = await fetch(url, options);
 
-    if (!response.ok) {
-      const message = `Error has ocurred: ${response.error}`;
-      throw new Error(message);
-    }
+  if (!response.ok) {
+    const message = `Error has ocurred: ${response.status}`;
+    throw new Error(message);
+  }
 
-    const dataResponse = await response.json();
+  const dataResponse = await response.json();
 
-    return dataResponse;
-
+  return dataResponse;
 }
 
 export async function addTodo(todo) {

@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import AddTodoForm from "../components/AddTodoForm.jsx";
+import NavBar from "../components/NavBar.jsx";
 import useApi from "../hooks/useApi.jsx";
 
 function AddTodoPage(){
@@ -10,24 +11,17 @@ function AddTodoPage(){
         postData(todo);
     };
 
-    if (isError) {
-        return (
-          <div>
-            <strong>Something goes wrong...</strong>
-          </div>
-        );
-    }
-
     return (
       <Fragment>
-      <h1>Add Todo</h1>
+      <h1>Create Todo</h1>
+      <NavBar />
       <p>Do you want to add something to your to-do list?</p>
       <AddTodoForm onPostItem={handlePostTodo} /> 
       {isLoading ? (
         <p>
           <strong>Loading...</strong>
         </p>
-      ) : (
+      ) : isError? (<p>Something goes wrong...</p>):(
         addedTodo&&<p>Succesfully added record with title: {addedTodo.title}!</p>
       )}
       </Fragment>
