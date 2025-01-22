@@ -1,0 +1,20 @@
+
+.menu-bar > li > a {
+    text-decoration: none; 
+    display: block;
+    padding: 10px 10px;
+    color: #197bbd; 
+  }
+  
+ 
+  .menu-bar > li:hover {
+    background: rgba(153, 145, 172, 0.5);
+    font-weight: bold;
+    cursor: pointer; 
+  }
+  
+  .invisible {
+    display: none;
+  }
+
+  

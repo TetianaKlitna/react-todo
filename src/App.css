@@ -1,0 +1,36 @@
+.centered-div {
+  display: grid;
+  place-items: center; /* Center horizontally and vertically */
+  height: 100vh; /* Take full height of the viewport */
+  background: url("./assets/bg-img.svg") center/cover no-repeat;
+}
+
+.container {
+  background-color: rgb(255, 255, 255, 0.5);
+
+  padding: 2%;
+  margin: 0 auto;
+
+  border-left: 20px solid rgb(153, 145, 172);
+  border-bottom: 2px solid #197bbd;
+  border-top: 2px solid #197bbd;
+  border-right: 3px solid #197bbd;
+  border-radius: 15% 0 0 15%;
+}
+
+.horizontal-list {
+  display: flex;
+  list-style-type: none;
+}
+
+.center-align {
+  margin: 0 auto;
+}
+
+.right-align {
+  margin-left: auto;
+}
+
+.left-align {
+  margin-right: auto;
+}

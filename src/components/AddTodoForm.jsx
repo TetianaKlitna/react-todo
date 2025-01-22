@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import InputWithLabel from "./InputWithLabel";
 
 const AddTodoForm = ({ onPostItem }) => {
-  
   const [todoTitle, setTodoTitle] = useState("");
   const isFocused = true;
   const ref = useRef(null);
