@@ -1,10 +1,9 @@
 import { Fragment, useState, useMemo } from "react";
 import TodoList from "../components/TodoList.jsx";
-import NavBar from "../components/NavBar.jsx";
 import SearchForm from "../components/SearchForm.jsx";
 import useApi from "../hooks/useApi.jsx";
 
-function TodoContainer() {
+function TodoPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const { todoList, isLoading, isError, deleteData } = useApi();
 
@@ -25,9 +24,6 @@ function TodoContainer() {
 
   return (
     <Fragment>
-      <h1>Todo List</h1>
-      <NavBar />
-      <hr />
       <SearchForm setNewFilter={setSearchTerm} />
       {isLoading ? (
         <p>
@@ -52,4 +48,4 @@ function TodoContainer() {
   );
 }
 
-export default TodoContainer;
+export default TodoPage;
