@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import AddTodoForm from "../components/AddTodoForm.jsx";
+import AddTodoForm from "../components/Container/AddTodo/AddTodoForm.jsx";
 import useApi from "../hooks/useApi.jsx";
 
 function AddTodoPage() {
@@ -11,7 +11,6 @@ function AddTodoPage() {
 
   return (
     <Fragment>
-      <p>Do you want to add something to your to-do list?</p>
       <AddTodoForm onPostItem={handlePostTodo} />
       {isLoading ? (
         <p>

@@ -1,0 +1,39 @@
+.menu-bar {
+  flex: 0 0 15%;
+}
+
+.menu-bar > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-bar > ul > li {
+  margin: 10px;
+  padding: 10px;
+}
+
+.menu-bar > ul > li > a {
+  text-decoration: none;
+  color: #197bbd;
+  transition: scale 0.3s;
+}
+
+.menu-bar > ul > li:hover {
+  font-weight: bold;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.link-img {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+}
+
+.active {
+  color: white;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}

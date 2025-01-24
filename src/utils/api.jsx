@@ -1,4 +1,6 @@
-const urlEndpoint = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${encodeURIComponent(import.meta.env.VITE_TABLE_NAME)}`;
+const urlEndpoint = `https://api.airtable.com/v0/${
+  import.meta.env.VITE_AIRTABLE_BASE_ID
+}/${encodeURIComponent(import.meta.env.VITE_TABLE_NAME)}`;
 
 async function apiRequest(options, url = urlEndpoint) {
   const response = await fetch(url, options);
@@ -38,6 +40,29 @@ export async function addTodo(todo) {
     `Added record with id: ${addedTodo.id} title: ${addedTodo.title}`
   );
   return addedTodo;
+}
+
+export async function updateTodo(todo) {
+  const updateRecord = `/${todo.id}`;
+  console.log(updateRecord);
+
+  const todoData = {
+    fields: {
+      completedAt: new Intl.DateTimeFormat('en-CA').format(new Date()),
+    },
+  };
+
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+    },
+    body: JSON.stringify(todoData),
+  };
+
+  const data = await apiRequest(options, urlEndpoint + updateRecord);
+  console.log(data);
 }
 
 export async function deleteTodo(todo) {

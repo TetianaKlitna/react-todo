@@ -1,50 +1,43 @@
-import { Fragment, useState, useMemo } from "react";
-import TodoList from "../components/TodoList.jsx";
-import SearchForm from "../components/SearchForm.jsx";
-import useApi from "../hooks/useApi.jsx";
+import NavBar from "../components/NavBar/NavBar";
+import TodoListContainer from "../components/Container/TodoListContainer";
+import NotFoundPage from "./NotFoundPage";
+import AddTodoPage from "./AddTodoPage";
+import Header from "../components/Header/Header";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function TodoPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const { todoList, isLoading, isError, deleteData } = useApi();
+  const [activeItemMenu, setActiveItemMenu] = useState("home");
+  const navigate = useNavigate();
 
-  const handleRemoveTodo = (todo) => {
-    deleteData(todo);
+  const onClickItemMenu = (state, path) => {
+    setActiveItemMenu(state);
+    navigate(path);
   };
 
-  const filteredTodos = useMemo(() => {
-    if (!searchTerm) {
-      return todoList;
-    }
+  let content;
 
-    return todoList.filter(
-      (item) =>
-        item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-    );
-  }, [todoList, searchTerm]);
+  if (activeItemMenu === "home") {
+    content = <TodoListContainer />;
+  } else if (activeItemMenu === "add") {
+    content = <AddTodoPage />;
+  } else {
+    content = <NotFoundPage />;
+  }
 
   return (
-    <Fragment>
-      <SearchForm setNewFilter={setSearchTerm} />
-      {isLoading ? (
-        <p>
-          <strong>Loading...</strong>
-        </p>
-      ) : isError ? (
-        <p>Something goes wrong...</p>
-      ) : (
-        <div>
-          {searchTerm && <p>Filter applied: {searchTerm} </p>}
-          {!filteredTodos.length ? (
-            <p>No results found with the applied filters</p>
-          ) : (
-            <TodoList
-              todoList={filteredTodos}
-              onRemoveItem={handleRemoveTodo}
-            />
-          )}
+    <div className="bg-app">
+      <div className="app-container">
+        <Header />
+        <div className="main-container">
+          <NavBar
+            activeItemMenu={activeItemMenu}
+            onClickItemMenu={onClickItemMenu}
+          />
+          {content}
         </div>
-      )}
-    </Fragment>
+      </div>
+    </div>
   );
 }
 

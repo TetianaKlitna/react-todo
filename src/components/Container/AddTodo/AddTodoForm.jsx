@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
-import InputWithLabel from "./InputWithLabel";
+import InputWithLabel from "../General/InputWithLabel";
+import styles from "./AddTodoForm.module.css";
 
 const AddTodoForm = ({ onPostItem }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -24,7 +25,8 @@ const AddTodoForm = ({ onPostItem }) => {
   };
 
   return (
-    <form onSubmit={handleAddTodo}>
+    <form onSubmit={handleAddTodo} className={styles["add-form"]}>
+    {/* <p>Do you want to add something to your to-do list?</p> */}
       <InputWithLabel
         ref={ref}
         id="todoTitle"
@@ -35,9 +37,11 @@ const AddTodoForm = ({ onPostItem }) => {
       >
         <strong>Title:</strong>
       </InputWithLabel>
+      <div className={styles["btns"]}>
       <button type="submit" id="submitButton">
         Submit
       </button>
+      </div>
     </form>
   );
 };

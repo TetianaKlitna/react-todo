@@ -1,9 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TodoContainer from "./pages/TodoContainer";
+import TodoPage from "./pages/TodoPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ViewTodoDetails from "./pages/ViewTodoDetails";
-import EditTodoItem from "./pages/EditTodoItem";
 
 function App() {
   return (
@@ -11,15 +10,11 @@ function App() {
       <div className="container">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<TodoContainer />} />
-            <Route path="/new" element={<TodoContainer />} />
+            <Route path="/" element={<TodoPage />} />
+            <Route path="/new" element={<TodoPage />} />
             <Route
               path="/view-todo-details/:id"
               element={<ViewTodoDetails />}
-            />
-            <Route
-              path = "/edit/:id"
-              element={<EditTodoItem/>}
             />
             <Route path="/*" element={<NotFoundPage />} />
           </Routes>
