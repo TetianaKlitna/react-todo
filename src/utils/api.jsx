@@ -48,7 +48,7 @@ export async function updateTodo(todo) {
 
   const todoData = {
     fields: {
-      completedAt: new Intl.DateTimeFormat('en-CA').format(new Date()),
+      completedAt: new Intl.DateTimeFormat("en-CA").format(new Date()),
     },
   };
 
@@ -62,7 +62,15 @@ export async function updateTodo(todo) {
   };
 
   const data = await apiRequest(options, urlEndpoint + updateRecord);
-  console.log(data);
+  const newTodo = {
+    id: data.id,
+    title: data.fields.title,
+    completedAt: data.fields.completedAt,
+  };
+  console.log(
+    `Updated record with id: ${newTodo.id} title: ${newTodo.title} completedAt: ${newTodo.completedAt}`
+  );
+  return newTodo;
 }
 
 export async function deleteTodo(todo) {
@@ -95,6 +103,7 @@ export async function getTodos() {
     const newTodo = {
       id: todo.id,
       title: todo.fields.title,
+      completedAt: todo.fields.completedAt,
     };
     return newTodo;
   });

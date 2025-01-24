@@ -3,7 +3,7 @@ import styles from "./TodoListItem.module.css";
 import RemoveImg from "../../../assets/remove-btn.svg?react";
 import DoneImg from "../../../assets/done-btn.svg?react";
 import ViewImg from "../../../assets/view-btn.svg?react";
-import ItemImg from "../../../assets/item-img.svg?react"
+import ItemImg from "../../../assets/item-img.svg?react";
 
 const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
   const navigate = useNavigate();
@@ -14,35 +14,28 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
     });
   };
 
+  const toogleCompletedClass = item.completedAt? styles["todo-completed"] :"";
+
   return (
     <li className={styles.item}>
-      <span style={{ width: "65%", display: "flex", alignItems: "center" }}>
-        <ItemImg alt="Item Icon" width="20px" height="20px"/>
+      <span className={`${styles["todo-task"]} ${toogleCompletedClass}`}>
+        <ItemImg alt="Item Icon" width="20px" height="20px" />
         {item.title}
       </span>
-      <span style={{ width: "35%" }}>
-        <button
-          className={`tooltip ${styles["btn"]}`}
-          onClick={handleViewClick}
-        >
+      <span className={styles["btns"]}>
+        <button onClick={handleViewClick}>
           <ViewImg alt="View Item Icon" width="20px" height="20px" />
-          <span className="tooltiptext">View</span>
+          <span>View</span>
         </button>
 
-        <button
-          className={`tooltip ${styles["btn"]}`}
-          onClick={() => onDoneTodo(item)}
-        >
+        <button disabled={item.completedAt} onClick={() => onDoneTodo(item)}>
           <DoneImg alt="Done Item Icon" width="20px" height="20px" />
-          <span className="tooltiptext">Done</span>
+          <span>Done</span>
         </button>
 
-        <button
-          className={`tooltip ${styles["btn"]}`}
-          onClick={() => onRemoveTodo(item)}
-        >
+        <button onClick={() => onRemoveTodo(item)}>
           <RemoveImg alt="Remove Item Icon" width="20px" height="20px" />
-          <span className="tooltiptext">Delete</span>
+          <span>Delete</span>
         </button>
       </span>
     </li>

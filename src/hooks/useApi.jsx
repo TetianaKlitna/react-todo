@@ -61,9 +61,14 @@ const useApi = () => {
   const updateData = async (item) => {
     setIsLoading(true);
     try {
-      const deletedIds = await updateTodo(item); 
-      // const newToDoList = todoList.filter((item) => !deletedIds.includes(item.id));
-      // setTodoList(newToDoList);
+      const updatedTodo = await updateTodo(item); 
+      const newToDoList = todoList.map((item) => {
+        if(item.id === updatedTodo.id){
+          item.completedAt = updatedTodo.completedAt;
+        }
+        return item;
+      });
+      setTodoList(newToDoList);
       setIsError(false);
     } catch (err) {
       console.log(err.message);
