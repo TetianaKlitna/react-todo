@@ -1,7 +1,7 @@
-import styles from "./TodoListContainer.module.css";
 import { useState, useMemo, Fragment } from "react";
 import TodoList from "./TodoList/TodoList.jsx";
 import SearchForm from "./Search/SearchForm.jsx";
+import Loader from "./Loader/Loader.jsx";
 import useApi from "../../hooks/useApi.jsx";
 
 function TodoListContainer() {
@@ -29,26 +29,21 @@ function TodoListContainer() {
   }, [todoList, searchTerm]);
 
   return (
-    <div className={styles["main-content"]}>
+    <div>
       <SearchForm setNewFilter={setSearchTerm} />
       {isLoading ? (
-        <div className="container-loader">
-          <span className="loader"></span>
-        </div>
+        <Loader />
       ) : isError ? (
         <p>Something goes wrong...</p>
       ) : (
         <Fragment>
           {searchTerm && <p>Filter applied: {searchTerm} </p>}
-          {!filteredTodos.length ? (
-            <p>No tasks in your ToDo list.</p>
-          ) : (
-            <TodoList
-              todoList={filteredTodos}
-              onDoneItem={handleDoneTodo}
-              onRemoveItem={handleRemoveTodo}
-            />
-          )}
+          {!filteredTodos.length && <p>No tasks in your ToDo list.</p>}
+          <TodoList
+            todoList={filteredTodos}
+            onDoneItem={handleDoneTodo}
+            onRemoveItem={handleRemoveTodo}
+          />
         </Fragment>
       )}
     </div>

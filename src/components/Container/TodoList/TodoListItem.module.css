@@ -1,29 +1,25 @@
 .item {
   display: flex;
+  align-items: center;
   border-radius: 15px;
   border: 1px solid #ccc; 
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   outline: none;
+  gap: 10px;
+  padding: 15px;
+  margin: 0;
   transition: box-shadow 0.3s ease, border 0.3s ease;
 }
  
 .todo-task {
   flex: 1; /* Take up remaining space */
-  padding: 12px 15px;
-  margin: 0;
 }
 
 .todo-task:hover{
   font-size: 1.2rem;
 }
 
-.btns {
-  display: flex;
-  gap: 10px; 
-  align-items: center;
-}
-
-.btns > button {
+.item > button {
   padding: 10px 20px;
   background-color: whitesmoke ; 
   border-radius: 15px;
@@ -33,17 +29,17 @@
   
 }
 
-.btns > button:hover {
+.item > button:hover {
   background-color: whitesmoke;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
   transform: scale(1.05); 
 }
 
-.btns > button > span {
+.item > button > span {
   font-size: 0.8rem;
 }
 
-.btns > button[disabled] {
+.item > button[disabled] {
   background-color: #ddd;
   color: #999;
   cursor: not-allowed;

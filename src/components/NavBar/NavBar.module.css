@@ -1,38 +1,55 @@
-.menu-bar {
-  flex: 0 0 15%;
+
+ @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+ .permanent-marker-regular {
+   font-family: "Permanent Marker", serif;
+   font-weight: normal; 
+   font-size: 2rem;
+ }
+ 
+ .nav-menu {
+   color: rgb(95, 75, 141);
+   display: flex;
+
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+
+ }
+ 
+ .nav-menu > li {
+
+   text-align: center;
+   display: flex; 
+   align-items:center;
+
+   margin: 15px;        
+   padding: 15px;
+
+ }
+ 
+ .link-img {
+   display: flex; 
+   align-items: center;  
+   gap: 10px; 
+   text-decoration: none;
+
+   border-radius: 15px;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+   padding: 10px;
+ }
+ 
+ .active {
+   /* color: white;
+   border-radius: 15px;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); */
+   box-shadow: 0 0 5px rgba(43, 182, 115, 0.5);
+   border: 1px solid rgba(43, 182, 115, 0.5);
+   transform: scale(1.2);
+ }
+
+.nav-menu > li:nth-last-child(2) {
+  margin-left: auto; 
 }
 
-.menu-bar > ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu-bar > ul > li {
-  margin-bottom: 15px;
-  padding: 15px;
-}
-
-.menu-bar > ul > li > a {
-  text-decoration: none;
-  color: #197bbd;
-  transition: scale 0.3s;
-}
-
-.menu-bar > ul > li:hover {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.link-img {
-  display: flex !important;
-  align-items: center !important;
-  gap: 20px !important;
-}
-
-.active {
-  color: white;
-  border-radius: 15px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.1);
-}
+ 

@@ -1,8 +1,13 @@
 import { useState, useRef } from "react";
-import InputWithLabel from "../General/InputWithLabel";
+import InputWithLabel from "../Input/InputWithLabel";
+import Loader from "../Loader/Loader";
+import styles from "./AddTodoForm.module.css";
+import useApi from "../../../hooks/useApi.jsx";
 
-const AddTodoForm = ({ onPostItem }) => {
+const AddTodoForm = () => {
   const [todoTitle, setTodoTitle] = useState("");
+  const { addedTodo, isLoading, isError, postData } = useApi();
+
   const isFocused = true;
   const ref = useRef(null);
 
@@ -15,7 +20,7 @@ const AddTodoForm = ({ onPostItem }) => {
     e.preventDefault();
     const title = todoTitle.trim();
     if (title) {
-      onPostItem({ id: Date.now(), title: title });
+      postData({ id: Date.now(), title: title });
       setTodoTitle("");
       ref.current.focus();
     } else {
@@ -24,23 +29,34 @@ const AddTodoForm = ({ onPostItem }) => {
   };
 
   return (
-    <form onSubmit={handleAddTodo} >
-    {/* <p>Do you want to add something to your to-do list?</p> */}
-      <InputWithLabel
-        ref={ref}
-        id="todoTitle"
-        name="title"
-        value={todoTitle}
-        onInputChange={handleTitleChange}
-        isFocused={isFocused}
-      >
-        <strong>Title:</strong>
-      </InputWithLabel>
+    <form className={styles["add-form"]} onSubmit={handleAddTodo}>
+      <div>Would you like to add a To-Do?</div>
       <div>
-      <button type="submit" id="submitButton">
-        Submit
-      </button>
+        <InputWithLabel
+          ref={ref}
+          id="todoTitle"
+          name="title"
+          value={todoTitle}
+          onInputChange={handleTitleChange}
+          isFocused={isFocused}
+        >
+          <strong>Title:</strong>
+        </InputWithLabel>
+
+        <button className={styles["btn"]} type="submit" id="submitButton">
+          Submit
+        </button>
       </div>
+
+      {isLoading ? (
+       < Loader />
+      ) : isError ? (
+        <p>Something goes wrong...</p>
+      ) : (
+        addedTodo && (
+          <p>Succesfully added record with title: {addedTodo.title}!</p>
+        )
+      )}
     </form>
   );
 };

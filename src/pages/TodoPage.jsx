@@ -1,10 +1,11 @@
-import NavBar from "../components/NavBar/NavBar";
-import TodoListContainer from "../components/Container/TodoListContainer";
-import NotFoundPage from "./NotFoundPage";
-import AddTodoPage from "./AddTodoPage";
-import Header from "../components/Header/Header";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+
+import NavBar from "../components/NavBar/NavBar";
+import TodoListContainer from "../components/Container/TodoListContainer";
+import AddTodoForm from "../components/Container/AddTodo/AddTodoForm";
+import NotFoundPage from "./NotFoundPage";
+import Footer from "../components/Footer/Footer";
 
 function TodoPage() {
   const [activeItemMenu, setActiveItemMenu] = useState("home");
@@ -20,23 +21,21 @@ function TodoPage() {
   if (activeItemMenu === "home") {
     content = <TodoListContainer />;
   } else if (activeItemMenu === "add") {
-    content = <AddTodoPage />;
+    content = <AddTodoForm />;
   } else {
     content = <NotFoundPage />;
   }
 
   return (
-    <div className="bg-app">
-      <div className="app-container">
-        <Header />
-        <div className="main-container">
-          <NavBar
-            activeItemMenu={activeItemMenu}
-            onClickItemMenu={onClickItemMenu}
-          />
-          {content}
-        </div>
+    <div className="base-container">
+      <NavBar className="header"
+        activeItemMenu={activeItemMenu}
+        onClickItemMenu={onClickItemMenu}
+      />
+      <div className="content">
+        {content}
       </div>
+      <Footer className="footer" />
     </div>
   );
 }

@@ -14,7 +14,7 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
     });
   };
 
-  const toogleCompletedClass = item.completedAt? styles["todo-completed"] :"";
+  const toogleCompletedClass = item.completedAt ? styles["todo-completed"] : "";
 
   return (
     <li className={styles.item}>
@@ -22,22 +22,21 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
         <ItemImg alt="Item Icon" width="20px" height="20px" />
         {item.title}
       </span>
-      <span className={styles["btns"]}>
-        <button onClick={handleViewClick}>
-          <ViewImg alt="View Item Icon" width="20px" height="20px" />
-          <span>View</span>
-        </button>
 
-        <button disabled={item.completedAt} onClick={() => onDoneTodo(item)}>
-          <DoneImg alt="Done Item Icon" width="20px" height="20px" />
-          <span>Done</span>
-        </button>
+      <button onClick={handleViewClick}>
+        <ViewImg alt="View Item Icon" width="20px" height="20px" />
+        <span>View</span>
+      </button>
 
-        <button onClick={() => onRemoveTodo(item)}>
-          <RemoveImg alt="Remove Item Icon" width="20px" height="20px" />
-          <span>Delete</span>
-        </button>
-      </span>
+      <button disabled={item.completedAt} onClick={() => onDoneTodo(item)}>
+        <DoneImg alt="Done Item Icon" width="20px" height="20px" />
+        <span>Done</span>
+      </button>
+
+      <button onClick={() => onRemoveTodo(item)}>
+        <RemoveImg alt="Remove Item Icon" width="20px" height="20px" />
+        <span>Delete</span>
+      </button>
     </li>
   );
 };
