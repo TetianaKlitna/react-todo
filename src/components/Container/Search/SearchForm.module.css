@@ -7,7 +7,7 @@
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   
-  padding: 15px;
+  padding: 5px;
   gap: 10px;
 }
 
@@ -16,6 +16,9 @@
 }
 
 .btn {
+  display: flex; 
+  align-items: center;  
+  gap: 10px; 
   padding: 10px 20px;
   background-color: rgb(43, 182, 115);
   color: #fff;
@@ -26,19 +29,39 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover {
-  background-color: rgb(38, 160, 97);
-  transform: scale(1.05);
+ /* styles for desktops*/
+@media (min-width: 1070px) {
+  .btn > span{
+    display: flex;
+  }
 }
 
-.btn[disabled] {
-  background-color: #ddd;
-  color: #999;
-  cursor: not-allowed;
-  box-shadow: none;
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px){
+  .btn > span{
+    display: flex;
+  }
 }
 
-.btn:focus {
-  outline: 3px solid rgb(43, 182, 115);
-  outline-offset: 3px;
-}
+/*styles for mobiles*/
+@media (max-width: 800px){
+  .btn > span{
+    display: none;
+  }
+
+  .search-form > input > strong {
+    display:none
+  }
+
+  .btn {
+    display: flex; 
+    align-items: center;  
+    gap: 2px; 
+    padding: 2px 4px;
+    background-color:transparent;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+  }
+
+}  

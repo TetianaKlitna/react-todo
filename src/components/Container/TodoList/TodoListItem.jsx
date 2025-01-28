@@ -1,9 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./TodoListItem.module.css";
-import RemoveImg from "../../../assets/remove-btn.svg?react";
-import DoneImg from "../../../assets/done-btn.svg?react";
-import ViewImg from "../../../assets/view-btn.svg?react";
-import ItemImg from "../../../assets/item-img.svg?react";
 
 const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
   const navigate = useNavigate();
@@ -18,25 +14,59 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
 
   return (
     <li className={styles.item}>
-      <span className={`${styles["todo-task"]} ${toogleCompletedClass}`}>
-        <ItemImg alt="Item Icon" width="20px" height="20px" />
+      <span
+        className={`${styles["todo-task"]} ${toogleCompletedClass} ${styles["img-txt"]}`}
+      >
+        <img
+          src="src/assets/item-img.svg"
+          height="20px"
+          width="20px"
+          alt="Item Icon"
+        />
         {item.title}
       </span>
 
-      <button onClick={handleViewClick}>
-        <ViewImg alt="View Item Icon" width="20px" height="20px" />
-        <span>View</span>
-      </button>
+      {/* Visible in mobile and tablet views */}
+      <input type="checkbox" id={styles["humburger-btns"]} />
 
-      <button disabled={item.completedAt} onClick={() => onDoneTodo(item)}>
-        <DoneImg alt="Done Item Icon" width="20px" height="20px" />
-        <span>Done</span>
-      </button>
+      {/* Visible in desktop view. */}
+      <ul className={styles["nav-btns"]}>
+        <li>
+          <button onClick={handleViewClick}>
+            <img
+              src="src/assets/view-btn.svg"
+              height="20px"
+              width="20px"
+              alt="View Item Icon"
+            />
+            <span>View</span>
+          </button>
+        </li>
 
-      <button onClick={() => onRemoveTodo(item)}>
-        <RemoveImg alt="Remove Item Icon" width="20px" height="20px" />
-        <span>Delete</span>
-      </button>
+        <li>
+          <button disabled={item.completedAt} onClick={() => onDoneTodo(item)}>
+            <img
+              src="src/assets/done-btn.svg"
+              height="20px"
+              width="20px"
+              alt="Done Item Icon"
+            />
+            <span>Done</span>
+          </button>
+        </li>
+
+        <li>
+          <button onClick={() => onRemoveTodo(item)}>
+            <img
+              src="src/assets/remove-btn.svg"
+              height="20px"
+              width="20px"
+              alt="Remove Item Icon"
+            />
+            <span>Delete</span>
+          </button>
+        </li>
+      </ul>
     </li>
   );
 };

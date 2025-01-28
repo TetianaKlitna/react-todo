@@ -4,6 +4,8 @@ body {
 
   max-width: 1600px;
   background: url("./assets/bg-img.svg") #7ce9bb  center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .base-container {
@@ -40,4 +42,66 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+}
+
+.centered-text > button{
+  padding: 10px 20px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px){
+  body {
+    font-size: 14px;
+  }
+
+  .base-container {
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .header {
+    padding: 5px;
+  }
+  
+  .content {
+    padding: 5px;
+    flex-grow: 1;  /* Take up remaining space between header and footer */
+  }
+  
+  .footer {
+    padding: 5px;
+  }
+}
+
+/*styles for mobiles*/
+@media (max-width: 800px){
+  body {
+    font-size: 12px;
+  }
+
+  .base-container {
+    border-radius: 5px;
+    margin: 3px;
+    padding: 3px;
+  }
+
+  .header {
+    padding: 3px;
+  }
+  
+  .content {
+    padding: 3px;
+    flex-grow: 1;  /* Take up remaining space between header and footer */
+  }
+  
+  .footer {
+    padding: 3px;
+  }
 }

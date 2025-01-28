@@ -1,6 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
 
 function ViewTodoDetails() {
+  
   const navigate = useNavigate();
   const location = useLocation();
   const { todos } = location.state || {};

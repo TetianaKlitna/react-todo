@@ -8,7 +8,6 @@
     padding: 10px;
     background-color: #fff;
     gap: 10px;
-    width: 100%;
   }
   .add-form > div {
     width: 100%;
@@ -35,12 +34,6 @@
     transform: scale(1.05);
   }
   
-  .btn[disabled] {
-    background-color: #ddd;
-    color: #999;
-    cursor: not-allowed;
-    box-shadow: none;
-  }
   
   .btn:focus {
     outline: 3px solid rgb(43, 182, 115);
