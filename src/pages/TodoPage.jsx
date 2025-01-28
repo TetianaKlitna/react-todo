@@ -1,55 +1,43 @@
-import { Fragment, useState, useMemo } from "react";
-import TodoList from "../components/TodoList.jsx";
-import NavBar from "../components/NavBar.jsx";
-import SearchForm from "../components/SearchForm.jsx";
-import useApi from "../hooks/useApi.jsx";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function TodoContainer() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const { todoList, isLoading, isError, deleteData } = useApi();
+import NavBar from "../components/NavBar/NavBar";
+import TodoListContainer from "../components/Container/TodoListContainer";
+import AddTodoForm from "../components/Container/AddTodo/AddTodoForm";
+import NotFoundPage from "./NotFoundPage";
+import Footer from "../components/Footer/Footer";
 
-  const handleRemoveTodo = (todo) => {
-    deleteData(todo);
+function TodoPage() {
+  const [activeItemMenu, setActiveItemMenu] = useState("home");
+  const navigate = useNavigate();
+
+  const onClickItemMenu = (state, path) => {
+    setActiveItemMenu(state);
+    navigate(path);
   };
 
-  const filteredTodos = useMemo(() => {
-    if (!searchTerm) {
-      return todoList;
-    }
+  let content;
 
-    return todoList.filter(
-      (item) =>
-        item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
-    );
-  }, [todoList, searchTerm]);
+  if (activeItemMenu === "home") {
+    content = <TodoListContainer />;
+  } else if (activeItemMenu === "add") {
+    content = <AddTodoForm />;
+  } else {
+    content = <NotFoundPage />;
+  }
 
   return (
-    <Fragment>
-      <h1>Todo List</h1>
-      <NavBar />
-      <hr />
-      <SearchForm setNewFilter={setSearchTerm} />
-      {isLoading ? (
-        <p>
-          <strong>Loading...</strong>
-        </p>
-      ) : isError ? (
-        <p>Something goes wrong...</p>
-      ) : (
-        <div>
-          {searchTerm && <p>Filter applied: {searchTerm} </p>}
-          {!filteredTodos.length ? (
-            <p>No results found with the applied filters</p>
-          ) : (
-            <TodoList
-              todoList={filteredTodos}
-              onRemoveItem={handleRemoveTodo}
-            />
-          )}
-        </div>
-      )}
-    </Fragment>
+    <div className="base-container">
+      <NavBar className="header"
+        activeItemMenu={activeItemMenu}
+        onClickItemMenu={onClickItemMenu}
+      />
+      <div className="content">
+        {content}
+      </div>
+      <Footer className="footer" />
+    </div>
   );
 }
 
-export default TodoContainer;
+export default TodoPage;
