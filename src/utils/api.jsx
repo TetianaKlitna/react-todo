@@ -42,6 +42,37 @@ export async function addTodo(todo) {
   return addedTodo;
 }
 
+export async function updateTodo(todo) {
+  const updateRecord = `/${todo.id}`;
+  console.log(updateRecord);
+
+  const todoData = {
+    fields: {
+      completedAt: new Intl.DateTimeFormat("en-CA").format(new Date()),
+    },
+  };
+
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+    },
+    body: JSON.stringify(todoData),
+  };
+
+  const data = await apiRequest(options, urlEndpoint + updateRecord);
+  const newTodo = {
+    id: data.id,
+    title: data.fields.title,
+    completedAt: data.fields.completedAt,
+  };
+  console.log(
+    `Updated record with id: ${newTodo.id} title: ${newTodo.title} completedAt: ${newTodo.completedAt}`
+  );
+  return newTodo;
+}
+
 export async function deleteTodo(todo) {
   const deleteRecords = `?records[]=${todo.id}`;
 
@@ -72,6 +103,7 @@ export async function getTodos() {
     const newTodo = {
       id: todo.id,
       title: todo.fields.title,
+      completedAt: todo.fields.completedAt,
     };
     return newTodo;
   });
