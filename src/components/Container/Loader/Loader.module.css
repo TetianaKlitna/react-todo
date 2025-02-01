@@ -1,0 +1,49 @@
+.container-loader {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:20px;
+  }
+  
+.loader {
+    border: 16px solid whitesmoke;
+    border-top: 16px solid #78a9ca;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+  }
+  
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* styles for desktops*/
+@media (min-width: 1070px) {
+  .loader{
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px){
+  .loader{
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/*styles for mobiles*/
+@media (max-width: 800px){
+  .loader{
+    width: 40px;
+    height: 40px;
+  }
+}  

@@ -1,0 +1,17 @@
+.lbl {
+  padding: 10px;
+}
+
+.input-text {
+  padding: 15px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.input-text:focus {
+  box-shadow: 0 0 5px rgba(43, 182, 115, 0.5);
+  border: 1px solid rgba(43, 182, 115, 0.5);
+}
