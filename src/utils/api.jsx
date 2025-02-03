@@ -19,6 +19,9 @@ export async function addTodo(todo) {
   const todoData = {
     fields: {
       title: todo.title,
+      description: todo.description,
+      priority: todo.priority,
+      dueDate: todo.dueDate,
     },
   };
 
@@ -35,9 +38,14 @@ export async function addTodo(todo) {
   const addedTodo = {
     id: data.id,
     title: data.fields.title,
+    description: data.fields.description,
+    priority: data.fields.priority,
+    dueDate: data.fields.dueDate,
   };
   console.log(
-    `Added record with id: ${addedTodo.id} title: ${addedTodo.title}`
+    `Added record with id: ${addedTodo.id} 
+    title: ${addedTodo.title} description: ${addedTodo.description} 
+    priority: ${addedTodo.priority} due date: ${addedTodo.dueDate}`
   );
   return addedTodo;
 }
@@ -103,6 +111,9 @@ export async function getTodos() {
     const newTodo = {
       id: todo.id,
       title: todo.fields.title,
+      description: todo.fields.description,
+      priority: todo.fields.priority,
+      dueDate: todo.fields.dueDate,
       completedAt: todo.fields.completedAt,
     };
     return newTodo;

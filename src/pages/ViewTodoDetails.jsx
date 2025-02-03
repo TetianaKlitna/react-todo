@@ -1,8 +1,16 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+import Header from "../components/Header/Header.jsx";
+import Footer from "../components/Footer/Footer.jsx";
+import TodoForm from "../components/Container/TodoForm/TodoForm.jsx";
+
+const activeItemMenu = "view";
+
+const isReadOnly = true;
+const titleText = "View To-Do Details:";
+const titleSubmitBtn = "Done";
 
 function ViewTodoDetails() {
-  
-  const navigate = useNavigate();
   const location = useLocation();
   const { todos } = location.state || {};
 
@@ -12,11 +20,17 @@ function ViewTodoDetails() {
 
   return (
     <div className="base-container">
-      <div className="centered-text">
-        <strong>Title:</strong>
-        {todos.title}
-        <button onClick={() => navigate(-1)}>Go Back</button>
+      <Header className="header" />
+      <div className="content">
+        <TodoForm
+          from={activeItemMenu}
+          initialTodo={todos}
+          isReadOnly={isReadOnly}
+          titleText={titleText}
+          titleSubmitBtn={titleSubmitBtn}
+        />
       </div>
+      <Footer className="footer" />
     </div>
   );
 }

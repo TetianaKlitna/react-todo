@@ -1,28 +1,29 @@
-.search-form {
+.todo-form-items {
+  width: 100%;
+}
+
+.todo-form-items > li {
+  padding: 5px;
+  gap: 10px;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
-  padding: 10px;
-  gap: 10px;
-}
-
-.search-form > input {
-  flex: 1; /* Take up remaining space */
-
 }
 
 .btn {
+  padding: 10px 20px;
+
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover:not(:disabled) {
+.btn:hover {
   transform: scale(1.05);
 }
 
-.btn:disabled {
-  cursor: not-allowed;
+.btn:hover {
+  transform: scale(1.05);
 }
 
 /* styles for desktops*/
@@ -56,3 +57,4 @@
     flex-direction: column;
   }
 }
+

@@ -1,14 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import Header from "../components/Header/Header.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 
 function NotFoundPage() {
-  const navigate = useNavigate();
 
   return (
     <div className="base-container">
+      <Header className="header" />
       <div className="centered-text">
-        <p>Oops! We can&apos;t find the page you&apos;re looking for.</p>
-        <button onClick={() => navigate(-1)}>Go Back</button>
+      <p>Oops! We can&apos;t find the page you&apos;re looking for.</p>
       </div>
+      <Footer className="footer" />
     </div>
   );
 }

@@ -1,3 +1,6 @@
+@import './colors.css';
+@import './common.css';
+
 body {
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 16px;

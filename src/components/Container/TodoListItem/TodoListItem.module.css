@@ -1,0 +1,33 @@
+.item {
+  display: flex;
+  align-items: center;
+  
+  background-color: var(--bg-list-item);
+  color: var(--color-list-item);
+
+  gap: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.item:hover {
+  background-color: var(--bg-list-item-hover);
+  color: var(--color-list-item-hover);
+}
+
+.todo-task {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.todo-task:hover {
+  font-size: 1.1rem;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  text-decoration-color: var(--decoration-color);
+  text-decoration-thickness: 2px;
+}
