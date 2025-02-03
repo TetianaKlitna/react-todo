@@ -1,7 +1,9 @@
 import { useState, useMemo, Fragment } from "react";
-import TodoList from "./TodoList/TodoList.jsx";
-import SearchForm from "./Search/SearchForm.jsx";
-import Loader from "./Loader/Loader.jsx";
+
+import TodoList from "./TodoList/TodoList";
+import SearchForm from "./Search/SearchForm";
+import Loader from "../Loader/Loader";
+
 import useApi from "../../hooks/useApi.jsx";
 
 function TodoListContainer() {
@@ -13,7 +15,6 @@ function TodoListContainer() {
   };
 
   const handleDoneTodo = (todo) => {
-    console.log(todo);
     updateData(todo);
   };
 
@@ -23,14 +24,13 @@ function TodoListContainer() {
     }
 
     return todoList.filter(
-      (item) =>
-        item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
+      (item) => item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1
     );
   }, [todoList, searchTerm]);
 
   return (
     <div>
-      <SearchForm setNewFilter={setSearchTerm} />
+      <SearchForm setSearchTerm={setSearchTerm} />
       {isLoading ? (
         <Loader />
       ) : isError ? (
@@ -41,6 +41,7 @@ function TodoListContainer() {
           {!filteredTodos.length && <p>No tasks in your ToDo list.</p>}
           <TodoList
             todoList={filteredTodos}
+            todosPerPage={5}
             onDoneItem={handleDoneTodo}
             onRemoveItem={handleRemoveTodo}
           />

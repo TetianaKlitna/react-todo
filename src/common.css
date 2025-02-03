@@ -1,0 +1,52 @@
+.no-style-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.smooth-border {
+  border-radius: 15px;
+  box-shadow: 0 0 5px var(--border-color-active);
+  border: 1px solid var(--border-color-active);
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.plain-border {
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px var(--border-color-disabled);
+  border: 1px solid var(--border-color-disabled);
+  outline: none;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.standard-button {
+  background-color: var(--bg-btn-color-active);
+  color: var(--color-btn-active);
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px var(--shadow-color-btn);
+  border: none;
+}
+
+.standard-button-disabled {
+  background-color: var(--bg-btn-color-disabled);
+  color: var(--color-btn-disabled);
+}
+
+.todo-btn{
+    background-color: var(--bg-btn-list-item);
+    color: var(--color-btn-list-item);
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px var(--shadow-btn-list-item);    
+    border: none;
+}
+
+.todo-btn-disabled{
+    background-color: var(--bg-btn-list-item-disabled);
+    color: var(--color-btn-list-item-disabled);
+}
