@@ -4,12 +4,12 @@ import Footer from "../components/Footer/Footer.jsx";
 
 const activeItemMenu = "add";
 const titleHeaderText = "Would you like to add a To-Do?";
-const titleSubmitBtn = "Add To-Do";
+const titleSubmitBtn = "Add";
 
 function AddTodoPage() {
 
   return (
-    <div className="base-container">
+    <div className="base-container plain-border">
       <Header className="header" activeItemMenu={activeItemMenu} />
       <div className="content">
         <TodoForm

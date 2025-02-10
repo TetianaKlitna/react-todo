@@ -19,7 +19,7 @@ function ViewTodoDetails() {
   }
 
   return (
-    <div className="base-container">
+    <div className="base-container plain-border">
       <Header className="header" />
       <div className="content">
         <TodoForm

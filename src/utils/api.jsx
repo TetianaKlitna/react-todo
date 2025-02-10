@@ -50,16 +50,16 @@ export async function addTodo(todo) {
   return addedTodo;
 }
 
-export async function updateTodo(todo) {
+export async function doneTodo(todo){
   const updateRecord = `/${todo.id}`;
-  console.log(updateRecord);
 
   const todoData = {
     fields: {
-      completedAt: new Intl.DateTimeFormat("en-CA").format(new Date()),
+      completedAt: (todo.completedAt? null: new Intl.DateTimeFormat("en-CA").format(new Date())),
     },
   };
 
+  
   const options = {
     method: "PATCH",
     headers: {
@@ -76,7 +76,46 @@ export async function updateTodo(todo) {
     completedAt: data.fields.completedAt,
   };
   console.log(
-    `Updated record with id: ${newTodo.id} title: ${newTodo.title} completedAt: ${newTodo.completedAt}`
+    `Done record with id: ${newTodo.id} title: ${newTodo.title} completedAt: ${newTodo.completedAt}`
+  );
+  return newTodo;
+
+}
+
+export async function updateTodo(todo) {
+
+  const updateRecord = `/${todo.id}`;
+  console.log(todo.dueDate);
+
+  const todoData = {
+    fields: {
+      title: todo.title,
+      priority: todo.priority,
+      dueDate: todo.dueDate,
+      description: todo.description,
+    },
+  };
+
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
+    },
+    body: JSON.stringify(todoData),
+  };
+
+  const data = await apiRequest(options, urlEndpoint + updateRecord);
+  const newTodo = {
+    id: data.id,
+    title: data.fields.title,
+    priority: data.fields.priority,
+    dueDate: data.fields.dueDate,
+    completedAt: data.fields.completedAt,
+    description: data.fields.description,
+  };
+  console.log(
+    `Updated record with id: ${newTodo.id} title: ${newTodo.title} priority: ${newTodo.priority} dueDate: ${newTodo.dueDate} completedAt: ${newTodo.completedAt}`
   );
   return newTodo;
 }
@@ -99,6 +138,12 @@ export async function deleteTodo(todo) {
 }
 
 export async function getTodos() {
+  //Sort by Airtable view order
+  //const fetchRecords = '?view=Grid%20view';
+  
+  //Sort by Airtable field
+  const fetchRecords = '?sort[0][field]=title&sort[0][direction]=asc';
+
   const options = {
     method: "GET",
     headers: {
@@ -106,7 +151,8 @@ export async function getTodos() {
     },
   };
 
-  const data = await apiRequest(options);
+  const data = await apiRequest(options, urlEndpoint + fetchRecords);
+  
   const todos = data.records.map((todo) => {
     const newTodo = {
       id: todo.id,

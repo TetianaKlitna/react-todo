@@ -14,15 +14,15 @@
   border-radius: 15px;
   box-shadow: 0 0 5px var(--border-color-active);
   border: 1px solid var(--border-color-active);
+  outline: none;
   transition: box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .plain-border {
   border-radius: 15px;
-  box-shadow: 2px 2px 8px var(--border-color-disabled);
   border: 1px solid var(--border-color-disabled);
   outline: none;
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .standard-button {
@@ -38,15 +38,16 @@
   color: var(--color-btn-disabled);
 }
 
-.todo-btn{
-    background-color: var(--bg-btn-list-item);
-    color: var(--color-btn-list-item);
-    border-radius: 15px;
-    box-shadow: 2px 2px 10px var(--shadow-btn-list-item);    
-    border: none;
+.todo-btn {
+  background-color: var(--bg-btn-list-item);
+  color: var(--color-btn-list-item);
+  border-radius: 15px;
+  box-shadow: 2px 2px 10px var(--shadow-btn-list-item);
+  border: none;
 }
 
-.todo-btn-disabled{
-    background-color: var(--bg-btn-list-item-disabled);
-    color: var(--color-btn-list-item-disabled);
+.todo-btn-disabled {
+  background-color: var(--bg-btn-list-item-disabled);
+  color: var(--color-btn-list-item-disabled);
 }
+

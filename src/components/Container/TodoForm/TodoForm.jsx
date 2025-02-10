@@ -26,7 +26,7 @@ const TodoForm = ({
 }) => {
   const [todo, setTodo] = useState(initialTodo);
   const { addedTodo, updatedTodo, 
-          postData, updateData, 
+          postData, updateData, doneData, 
           isLoading, isError } = useApi();
 
   const navigate = useNavigate();
@@ -42,12 +42,16 @@ const TodoForm = ({
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+
     if(from === "add"){
       postData(todo);
     }else if(from === "view" && !todo.completedAt){
+      doneData(todo);
+    }else if(from === "edit" && !todo.completedAt){
       updateData(todo);
     }
-    if (!isReadOnly) {
+
+    if (from === "add") {
       setTodo({
         title: "",
         description: "",
@@ -57,8 +61,20 @@ const TodoForm = ({
     }
   };
 
+  let message = null;
+
+  if (isLoading) {
+    message = <Loader />;
+  } else if (isError) {
+    message = <p>Something went wrong...</p>;
+  } else if (addedTodo) {
+    message = <p>Successfully added record with title: {addedTodo.title}!</p>;
+  } else if (updatedTodo) {
+    message = <p>Successfully updated record with title: {updatedTodo.title}!</p>;
+  }
+
   return (
-    <form onSubmit={handleOnSubmit}>
+    <form autoComplete="off" onSubmit={handleOnSubmit}>
       <ul className={clsx(styles["todo-form-items"], "no-style-list")}>
         <li className="center-flex">
           <strong>{titleHeaderText}</strong>
@@ -139,18 +155,7 @@ const TodoForm = ({
           </button>
         </li>
       </ul>
-      {isLoading ? (
-        <Loader />
-      ) : isError ? (
-        <p>Something goes wrong...</p>
-      ) : (
-        addedTodo && (
-          <p>Succesfully added record with title: {addedTodo.title}!</p>
-        ) ||
-        updatedTodo &&(
-          <p>Succesfully updated record with title: {updatedTodo.title}!</p>
-        )
-      )}
+      {message}
     </form>
   );
 };
@@ -159,7 +164,7 @@ TodoForm.propTypes = {
   from : PropTypes.string,
   initialTodo: PropTypes.object,
   isReadOnly: PropTypes.bool,
-  titleText: PropTypes.string,
+  titleHeaderText: PropTypes.string,
   titleSubmitBtn: PropTypes.string,
 };
 

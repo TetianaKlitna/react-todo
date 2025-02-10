@@ -4,19 +4,22 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  getViewIcon,
-  getDoneIcon,
-  getDeleteIcon,
-} from "../../../utils/assetPaths";
+import { icons } from "../../../utils/icons";
 
 import clsx from "clsx";
 
-function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
+function TodoButtons({ todo, onRemoveTodo }) {
+  const { view, edit, remove } = icons;
   const navigate = useNavigate();
 
   const handleViewClick = () => {
     navigate(`/view-todo-details/${todo.id}`, {
+      state: { todos: todo },
+    });
+  };
+
+  const handleEditClick = () => {
+    navigate(`/edit-todo-details/${todo.id}`, {
       state: { todos: todo },
     });
   };
@@ -34,7 +37,7 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
             onClick={handleViewClick}
           >
             <img
-              src={getViewIcon()}
+              src={view}
               height="20px"
               width="20px"
               alt="View Item Icon"
@@ -52,15 +55,15 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
               todo.completedAt && "todo-btn-disabled"
             )}
             disabled={todo.completedAt}
-            onClick={() => onDoneTodo(todo)}
+            onClick={handleEditClick}
           >
             <img
-              src={getDoneIcon()}
+              src={edit}
               height="20px"
               width="20px"
-              alt="Done Item Icon"
+              alt="Edit Item Icon"
             />
-            <span>Done</span>
+            <span>Edit</span>
           </button>
         </li>
 
@@ -70,7 +73,7 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
             onClick={() => onRemoveTodo(todo)}
           >
             <img
-              src={getDeleteIcon()}
+              src={remove}
               height="20px"
               width="20px"
               alt="Remove Item Icon"
@@ -86,7 +89,6 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
 TodoButtons.propTypes = {
   todo: PropTypes.object,
   onRemoveTodo: PropTypes.func,
-  onDoneTodo: PropTypes.func,
 };
 
 export default TodoButtons;

@@ -5,9 +5,10 @@ import { useState } from "react";
 
 import clsx from "clsx";
 
-import { getSearchIcon, getShowAllIcon } from "../../../utils/assetPaths";
+import { icons } from "../../../utils/icons";
 
 function SearchForm({ setSearchTerm }) {
+  const {search, showAll} = icons;
   const [currentInput, setCurrentInput] = useState("");
 
   const handleSearchSubmit = (event) => {
@@ -21,12 +22,12 @@ function SearchForm({ setSearchTerm }) {
   };
 
   return (
-    <form
+    <form autoComplete="off"
       className={clsx(styles["search-form"], "plain-border")}
       onSubmit={handleSearchSubmit}
     >
       <InputWithLabel
-        id="search"
+        id={styles["search"]}
         value={currentInput}
         placeholder="Enter your search term"
         onChange={(e) => setCurrentInput(e.target.value)}
@@ -42,7 +43,7 @@ function SearchForm({ setSearchTerm }) {
         disabled={!currentInput}
       >
         <img
-          src={getSearchIcon()}
+          src={search}
           height="25px"
           width="25px"
           alt="Search Item Icon"
@@ -55,7 +56,7 @@ function SearchForm({ setSearchTerm }) {
         onClick={handleShowAll}
       >
         <img
-          src={getShowAllIcon()}
+          src={showAll}
           height="25px"
           width="25px"
           alt="Show All Icon"
