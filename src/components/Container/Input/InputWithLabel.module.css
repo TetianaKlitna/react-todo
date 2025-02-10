@@ -7,6 +7,8 @@
 
 .input-text {
   padding: 10px;
+  background-color: var(--input-text-bg);
+  color: var(--input-text-color);
 }
 
 .lbl{
@@ -14,7 +16,7 @@
 }
 
 .readonly {
-  cursor: default;
+  cursor: not-allowed;
   background-color: var(--bg-input-disabled);
 }
 
@@ -25,3 +27,8 @@
   transition: box-shadow 0.3s ease, border 0.3s ease;
   outline: none;
 }
+
+.input-text[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
+}
+

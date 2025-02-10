@@ -3,13 +3,13 @@
   appearance: none;
   width: 30px;
   height: 30px;
-  background-image: url("src/assets/menu-btn.svg");
+  background-image: var(--three-dot-menu-url);
   background-size: cover;
   cursor: pointer;
 }
 
 #hamburger-btns:checked {
-  background-image: url("src/assets/close-menu-btn.svg");
+  background-image: var(--three-dot-close-menu-url);
 }
 
 .nav-btns {

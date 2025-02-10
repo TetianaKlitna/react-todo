@@ -1,0 +1,90 @@
+#toogle-theme {
+    appearance: none;
+
+    width: 50px;
+    height: 50px;
+    
+    background-image: var(--img-toogle-theme);
+   
+    background-size: cover;
+    cursor: pointer;
+}
+  
+#toogle-theme:checked {
+    background-image: var(--img-toogle-theme);
+}
+
+.toogle-position{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* styles for desktops*/
+@media (min-width: 1070px) {
+  .toogle-position{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px) {
+  .toogle-position{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*styles for mobiles*/
+@media (max-width: 800px) {
+  .toogle-position{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* .lbl {
+  cursor: pointer; */
+  /* Hides the label text */
+  /* text-indent: -9999px; 
+  width: 70px;
+  height: 34px;
+
+  background-color: var(--bg-toogle-theme);
+  
+  border-radius: 50px; 
+  position: relative;
+  display: inline-block;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.lbl:after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+
+  width: 30px;
+  height: 30px;
+
+  background-color: white; 
+
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+#toogle-theme:checked + .lbl {
+  background-color: var(--bg-toogle-theme);
+}
+
+#toogle-theme:checked + .lbl:after {
+  left: calc(100% - 32px);
+}
+ */ 

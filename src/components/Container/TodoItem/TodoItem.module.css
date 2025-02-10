@@ -16,18 +16,44 @@
 }
 
 .todo-task {
-  flex: 1; /* Take up remaining space */
+  flex-grow: 1; 
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.todo-task:hover {
-  font-size: 1.1rem;
 }
 
 .todo-completed {
   text-decoration: line-through;
   text-decoration-color: var(--decoration-color);
   text-decoration-thickness: 2px;
+}
+
+.todo-done{
+  width: 10%;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.todo-column{
+  width: 15%;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+#done-todo {
+  appearance: none;
+
+  width: 25px;
+  height: 25px;
+  
+  background-image: var(--todo-item);
+ 
+  background-size: cover;
+  cursor: pointer;
+}
+
+#done-todo:checked {
+  background-image: var(--done-todo-item);
 }

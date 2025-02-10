@@ -29,7 +29,7 @@ const InputWithLabel = forwardRef(function InputWithLabel(
     <div className={styles["label-input"]}>
       {children && <label className={styles["lbl"]} htmlFor={id}>{children} <span style={{ color: 'red' }}>*</span></label>}
       <input
-        className={clsx(isReadOnly && styles["readonly"], "plain-border", styles["input-text"])}
+        className={clsx(isReadOnly && styles.readonly, "plain-border", styles["input-text"])}
         ref={ref}
         id={id}
         name={name}

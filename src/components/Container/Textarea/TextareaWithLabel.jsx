@@ -7,7 +7,7 @@ function TextareaWithLabel({ id, name, value, children, onChange, rows, isReadOn
     <div className={styles["label-textarea"]}>
       <label htmlFor={id}>{children}</label>
       <textarea
-        className={clsx(isReadOnly && styles["readonly"], "plain-border")}
+        className={clsx(isReadOnly && styles.readonly, "plain-border")}
         id={id}
         name={name}
         value={value}

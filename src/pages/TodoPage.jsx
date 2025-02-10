@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header";
-import TodoListContainer from "../components/Container/TodoListContainer";
+import TodoContainer from "../components/Container/TodoContainer";
 import Footer from "../components/Footer/Footer";
 
 const activeItemMenu = "home";
@@ -7,12 +7,12 @@ const activeItemMenu = "home";
 function TodoPage() {
 
   return (
-    <div className="base-container">
+    <div className="base-container plain-border">
       <Header className="header"
         activeItemMenu={activeItemMenu}
       />
       <div className="content">
-      <TodoListContainer />
+      <TodoContainer />
       </div>
       <Footer className="footer" />
     </div>

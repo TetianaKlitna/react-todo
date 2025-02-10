@@ -1,0 +1,63 @@
+.light-theme {
+  --three-dot-menu-url: url("src/assets/light-menu-btn.svg");
+  --three-dot-close-menu-url: url("src/assets/light-close-menu-btn.svg");
+
+  --hamburger-menu-url: url("src/assets/light-menu-img.svg");
+  --hamburger-close-menu-url: url("src/assets/light-close-menu.svg");
+
+  --todo-item: url("src/assets/light-todo-img.svg");
+  --done-todo-item: url("src/assets/light-todo-done-img.svg");
+
+  --sort-asc-list: url("src/assets/light-sort-asc.svg");
+  --sort-desc-list: url("src/assets/light-sort-desc.svg");
+
+  --bg-img-url: url("src/assets/light-bg-img.svg");
+ 
+  --bg-color:  rgba(219, 252, 176, 0.5); /*#bfe7d7*/
+  --base-color:#2c5583;
+
+  --logo-text-color: #4ec443;
+
+  --border-color-active: #4ec443;
+  --border-color-disabled: #2c5583;
+
+  --bg-link-image: white;
+  --color-link-image: #2c5583;
+
+  --bg-btn-color-active: #4ec443;
+  --bg-btn-color-disabled: #c7c3c3;
+
+  --color-btn-active: white;
+  --color-btn-disabled: #2c5583;
+  --shadow-color-btn: #f2f2f2;
+
+  --decoration-color: #ff5e81;
+
+  --color-list-item: #2c5583;
+  --bg-list-item: white;
+  --color-list-item-hover: white;
+  --bg-list-item-hover: #4ec443;
+
+  --color-btn-list-item: #567891;
+  --bg-btn-list-item: #f2f2f2;
+  --shadow-btn-list-item: #c7c3c3;
+
+  --bg-btn-list-item-disabled: #c7c3c3;
+  --color-btn-list-item-disabled: #2c5583;
+
+  --bg-btn-list-item-hover: #f2f2f2;
+  --shadow-btn-list-item-hower: #2c5583;
+
+  --bg-loader: #f2f2f2;
+  --color-loader: #2c5583;
+
+  --bg-input-disabled: #f2f2f2;
+
+  --input-text-color: #2c5583;
+  --input-text-bg:white;
+  
+  --img-toogle-theme: url("src/assets/dark-mode.svg");
+  --bg-toogle-theme: #4ec443;
+
+  --bg-footer: white; 
+}
