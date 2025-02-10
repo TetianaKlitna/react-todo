@@ -8,6 +8,7 @@ const useApi = () => {
   const [isError, setIsError] = useState(false);
 
   const [addedTodo, setAddedTodo] = useState(null);
+  const [updatedTodo, setUpdatedTodo] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -62,6 +63,7 @@ const useApi = () => {
     setIsLoading(true);
     try {
       const updatedTodo = await updateTodo(item); 
+      setUpdatedTodo(updatedTodo);
       const newToDoList = todoList.map((item) => {
         if(item.id === updatedTodo.id){
           item.completedAt = updatedTodo.completedAt;
@@ -77,7 +79,7 @@ const useApi = () => {
       setIsLoading(false);
     }
   }
-  return { todoList, addedTodo, isLoading, isError, fetchData, postData, deleteData, updateData};
+  return { todoList, addedTodo, updatedTodo, isLoading, isError, fetchData, postData, deleteData, updateData};
 };
 
 export default useApi;

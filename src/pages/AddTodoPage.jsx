@@ -1,31 +1,26 @@
-import { Fragment } from "react";
-import AddTodoForm from "../components/AddTodoForm.jsx";
-import NavBar from "../components/NavBar.jsx";
-import useApi from "../hooks/useApi.jsx";
+import TodoForm from "../components/Container/TodoForm/TodoForm.jsx";
+import Header from "../components/Header/Header.jsx";
+import Footer from "../components/Footer/Footer.jsx";
 
-function AddTodoPage(){
+const activeItemMenu = "add";
+const titleHeaderText = "Would you like to add a To-Do?";
+const titleSubmitBtn = "Add To-Do";
 
-    const { addedTodo, isLoading, isError, postData } = useApi();
+function AddTodoPage() {
 
-    const handlePostTodo = (todo) => {
-        postData(todo);
-    };
-
-    return (
-      <Fragment>
-      <h1>Create Todo</h1>
-      <NavBar />
-      <p>Do you want to add something to your to-do list?</p>
-      <AddTodoForm onPostItem={handlePostTodo} /> 
-      {isLoading ? (
-        <p>
-          <strong>Loading...</strong>
-        </p>
-      ) : isError? (<p>Something goes wrong...</p>):(
-        addedTodo&&<p>Succesfully added record with title: {addedTodo.title}!</p>
-      )}
-      </Fragment>
-    );
+  return (
+    <div className="base-container">
+      <Header className="header" activeItemMenu={activeItemMenu} />
+      <div className="content">
+        <TodoForm
+          from={activeItemMenu}
+          titleHeaderText={titleHeaderText}
+          titleSubmitBtn={titleSubmitBtn}
+        />
+      </div>
+      <Footer className="footer" />
+    </div>
+  );
 }
 
 export default AddTodoPage;

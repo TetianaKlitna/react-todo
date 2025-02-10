@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
+.permanent-marker-regular {
+  font-family: "Permanent Marker", serif;
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+/* styles for desktops*/
+@media (min-width: 1070px) {
+  #logo-txt {
+    display: flex;
+  }
+
+  .permanent-marker-regular {
+    font-size: 2rem;
+  }
+}
+
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px) {
+  #logo-txt {
+    display: flex;
+  }
+
+  #logo-img > img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .permanent-marker-regular {
+    font-size: 1.5rem;
+  }
+}
+
+/*styles for mobiles*/
+@media (max-width: 800px) {
+  #logo-txt {
+    display: none;
+  }
+
+  #logo-img > img {
+    width: 50px;
+    height: 50px;
+  }
+}

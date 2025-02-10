@@ -1,48 +1,73 @@
 import styles from "./SearchForm.module.css";
+import PropTypes from "prop-types";
 import InputWithLabel from "../Input/InputWithLabel";
 import { useState } from "react";
 
-function SearchForm({ setNewFilter }) {
-  const [searchTerm, setSearchTerm] = useState("");
+import clsx from "clsx";
+
+import { getSearchIcon, getShowAllIcon } from "../../../utils/assetPaths";
+
+function SearchForm({ setSearchTerm }) {
+  const [currentInput, setCurrentInput] = useState("");
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    setNewFilter(searchTerm);
+    setSearchTerm(currentInput);
   };
 
   const handleShowAll = () => {
-    setNewFilter("");
     setSearchTerm("");
+    setCurrentInput("");
   };
 
   return (
-    <form className={styles["search-form"]} onSubmit={handleSearchSubmit}>
+    <form
+      className={clsx(styles["search-form"], "plain-border")}
+      onSubmit={handleSearchSubmit}
+    >
       <InputWithLabel
         id="search"
-        value={searchTerm}
+        value={currentInput}
         placeholder="Enter your search term"
-        onInputChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e) => setCurrentInput(e.target.value)}
       ></InputWithLabel>
-      <button className={styles["btn"]} type="submit" disabled={!searchTerm}>
+      <button
+        className={clsx(
+          styles["btn"],
+          "center-flex",
+          "standard-button",
+          !currentInput && "standard-button-disabled"
+        )}
+        type="submit"
+        disabled={!currentInput}
+      >
         <img
-          src="src/assets/search-btn.svg"
+          src={getSearchIcon()}
           height="25px"
           width="25px"
           alt="Search Item Icon"
         />
         <span>Search</span>
       </button>
-      <button className={styles["btn"]} type="button" onClick={handleShowAll}>
+      <button
+        className={clsx(styles["btn"], "center-flex", "standard-button")}
+        type="button"
+        onClick={handleShowAll}
+      >
         <img
-          src="src/assets/remove-filter-btn.svg"
+          src={getShowAllIcon()}
           height="25px"
           width="25px"
           alt="Show All Icon"
         />
-        <span>Show All</span>
+        <span>All</span>
       </button>
     </form>
   );
 }
+
+SearchForm.propTypes = {
+  setSearchTerm: PropTypes.func,
+};
 
 export default SearchForm;

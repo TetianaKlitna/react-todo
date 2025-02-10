@@ -1,0 +1,60 @@
+#hamburger {
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  background-image: url("src/assets/menu-img.svg");
+  background-size: cover;
+  cursor: pointer;
+}
+
+#hamburger:checked {
+  background-image: url("src/assets/close-menu.svg");
+}
+
+.nav-menu-items > li {
+  margin: 10px;
+}
+
+.nav-menu-items {
+  display: flex;
+}
+
+/* styles for desktops*/
+@media (min-width: 1070px) {
+  #hamburger {
+    display: none;
+  }
+
+  .nav-menu-items {
+    display: flex;
+  }
+}
+
+/*styles for tablets*/
+@media (min-width: 801px) and (max-width: 1070px) {
+  #hamburger {
+    display: none;
+  }
+
+  .nav-menu-items {
+    display: flex;
+  }
+}
+
+/*styles for mobiles*/
+@media (max-width: 800px) {
+  /*when the checkbox is checked, we’ll show the menu*/
+  #hamburger:checked ~ .nav-menu-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #hamburger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-menu-items {
+    display: none;
+  }
+}
