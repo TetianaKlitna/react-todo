@@ -1,6 +1,6 @@
 import { useState, useMemo, Fragment } from "react";
 
-import TodoList from "./TodoList/TodoList";
+import TodoTable from "./TodoTable/TodoTable";
 import SearchForm from "./Search/SearchForm";
 import Loader from "../Loader/Loader";
 
@@ -8,15 +8,15 @@ import useApi from "../../hooks/useApi.jsx";
 
 function TodoListContainer() {
   const [searchTerm, setSearchTerm] = useState("");
-  const { todoList, isLoading, isError, deleteData, updateData } = useApi();
+  const { todoList, isLoading, isError, deleteData, doneData } = useApi();
 
   const handleRemoveTodo = (todo) => {
     deleteData(todo);
   };
 
   const handleDoneTodo = (todo) => {
-    updateData(todo);
-  };
+    doneData(todo);
+  }
 
   const filteredTodos = useMemo(() => {
     if (!searchTerm) {
@@ -29,7 +29,7 @@ function TodoListContainer() {
   }, [todoList, searchTerm]);
 
   return (
-    <div>
+    <Fragment>
       <SearchForm setSearchTerm={setSearchTerm} />
       {isLoading ? (
         <Loader />
@@ -39,15 +39,15 @@ function TodoListContainer() {
         <Fragment>
           {searchTerm && <p>Filter applied: {searchTerm} </p>}
           {!filteredTodos.length && <p>No tasks in your ToDo list.</p>}
-          <TodoList
+          <TodoTable
             todoList={filteredTodos}
             todosPerPage={5}
-            onDoneItem={handleDoneTodo}
             onRemoveItem={handleRemoveTodo}
+            onDoneItem={handleDoneTodo}
           />
         </Fragment>
       )}
-    </div>
+    </Fragment>
   );
 }
 

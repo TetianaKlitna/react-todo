@@ -4,15 +4,12 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  getViewIcon,
-  getDoneIcon,
-  getDeleteIcon,
-} from "../../../utils/assetPaths";
+import { icons } from "../../../utils/icons";
 
 import clsx from "clsx";
 
-function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
+function TodoButtons({ todo, onRemoveTodo }) {
+  const { view, edit, remove } = icons;
   const navigate = useNavigate();
 
   const handleViewClick = () => {
@@ -21,8 +18,14 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
     });
   };
 
+  const handleEditClick = () => {
+    navigate(`/edit-todo-details/${todo.id}`, {
+      state: { todos: todo },
+    });
+  };
+
   return (
-    <Fragment>
+    <div className={styles["center-flex"]}>
       {/* Visible in mobile and tablet views */}
       <input type="checkbox" id={styles["hamburger-btns"]} />
 
@@ -33,12 +36,7 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
             className={clsx(styles["nav-btn"], "todo-btn", "center-flex")}
             onClick={handleViewClick}
           >
-            <img
-              src={getViewIcon()}
-              height="20px"
-              width="20px"
-              alt="View Item Icon"
-            />
+            <img src={view} height="20px" width="20px" alt="View Item Icon" />
             <span>View</span>
           </button>
         </li>
@@ -52,15 +50,10 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
               todo.completedAt && "todo-btn-disabled"
             )}
             disabled={todo.completedAt}
-            onClick={() => onDoneTodo(todo)}
+            onClick={handleEditClick}
           >
-            <img
-              src={getDoneIcon()}
-              height="20px"
-              width="20px"
-              alt="Done Item Icon"
-            />
-            <span>Done</span>
+            <img src={edit} height="20px" width="20px" alt="Edit Item Icon" />
+            <span>Edit</span>
           </button>
         </li>
 
@@ -70,7 +63,7 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
             onClick={() => onRemoveTodo(todo)}
           >
             <img
-              src={getDeleteIcon()}
+              src={remove}
               height="20px"
               width="20px"
               alt="Remove Item Icon"
@@ -79,14 +72,13 @@ function TodoButtons({ todo, onRemoveTodo, onDoneTodo }) {
           </button>
         </li>
       </ul>
-    </Fragment>
+    </div>
   );
 }
 
 TodoButtons.propTypes = {
   todo: PropTypes.object,
   onRemoveTodo: PropTypes.func,
-  onDoneTodo: PropTypes.func,
 };
 
 export default TodoButtons;

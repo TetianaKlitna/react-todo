@@ -1,0 +1,4 @@
+.todo-table {
+    display: flex;
+    flex-direction: column;
+}

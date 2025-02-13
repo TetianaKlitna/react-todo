@@ -1,15 +1,20 @@
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /*-- image as a checkbox in CSS----*/
 #hamburger-btns {
   appearance: none;
   width: 30px;
   height: 30px;
-  background-image: url("src/assets/menu-btn.svg");
+  background-image: var(--three-dot-menu-url);
   background-size: cover;
   cursor: pointer;
 }
 
 #hamburger-btns:checked {
-  background-image: url("src/assets/close-menu-btn.svg");
+  background-image: var(--three-dot-close-menu-url);
 }
 
 .nav-btns {
@@ -48,6 +53,11 @@
   .nav-btns {
     display: flex;
   }
+  .center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /*styles for tablets*/
@@ -58,11 +68,15 @@
   .nav-btns {
     display: flex;
   }
+  .center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /*styles for mobiles*/
 @media (max-width: 800px) {
-  /*when the checkbox is checked, we’ll show the menu*/
   #hamburger-btns:checked ~ .nav-btns {
     display: flex;
     flex-direction: column;
@@ -70,5 +84,11 @@
 
   .nav-btns {
     display: none;
+  }
+  .center-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }

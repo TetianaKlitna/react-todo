@@ -1,19 +1,16 @@
 import styles from "./NavItem.module.css";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
-function NavItem({ path, isActive, text, imgIcon, altText, width, height }) {
+function NavItem({ path, isActive, text, imgIcon, altText}) {
   return (
-    <Link
-      to={path}
-      className={
-        clsx( styles["link-img"], "center-flex", isActive && "smooth-border")
-      }
-    >
-      <img className={styles["nav-img"]} src={imgIcon} alt={altText} width={width} height={height}/>
+    <NavLink to={path} className={
+      clsx( styles["link-img"], "center-flex", isActive ? "smooth-border": "plain-border")
+    }>
+      <img className={styles["nav-img"]} src={imgIcon} alt={altText} />
       <span>{text}</span>
-    </Link>
+    </NavLink>
   );
 }
 

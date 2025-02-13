@@ -3,15 +3,14 @@ import PropTypes from "prop-types";
 
 import clsx from "clsx";
 
-import { Fragment } from "react";
-
 import NavItem from "../NavItem/NavItem";
 
-import { getHomeIcon, getAddIcon } from "../../../utils/assetPaths";
+import { icons } from "../../../utils/icons";
 
 function NavMenu({ activeItemMenu }) {
+  const { home, add } = icons;
   return (
-    <Fragment>
+    <nav>
       <input type="checkbox" id={styles["hamburger"]} />
       <ul className={clsx(styles["nav-menu-items"], "no-style-list")}>
         <li>
@@ -19,10 +18,8 @@ function NavMenu({ activeItemMenu }) {
             path="/"
             isActive={activeItemMenu === "home"}
             text="Go Home"
-            imgIcon={getHomeIcon()}
+            imgIcon={home}
             altText="Return to Homepage Icon"
-            width="30px"
-            height="30px"
           />
         </li>
         <li>
@@ -30,14 +27,14 @@ function NavMenu({ activeItemMenu }) {
             path="/new"
             isActive={activeItemMenu === "add"}
             text="Create ToDo"
-            imgIcon={getAddIcon()}
+            imgIcon={add}
             altText="Add New Todo Icon"
             width="30px"
             height="30px"
           />
         </li>
       </ul>
-    </Fragment>
+    </nav>
   );
 }
 

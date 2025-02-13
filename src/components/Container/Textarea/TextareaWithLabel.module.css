@@ -5,14 +5,16 @@
 }
 
 .readonly{
-  cursor: default;
+  cursor: not-allowed;
   background-color: var(--bg-input-disabled);
 }
 
-.label-textarea > textarea {
+.label-textarea > textarea:not([readonly]){
   padding: 10px;
   margin-top: 10px;
   resize: none;
+  background-color: var(--input-text-bg);
+  color: var(--input-text-color);
 }
 
 .label-textarea > textarea:not([readonly]):focus {

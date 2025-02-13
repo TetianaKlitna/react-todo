@@ -2,9 +2,10 @@ import styles from "./TodoPageNav.module.css";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
-import { getPreviousIcon, getNextIcon } from "../../../utils/assetPaths";
+import { icons } from "../../../utils/icons";
 
 function TodoPageNav({ currentPage, totalPages, setCurrentPage }) {
+  const { previous, next } = icons;
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
@@ -16,19 +17,20 @@ function TodoPageNav({ currentPage, totalPages, setCurrentPage }) {
           styles["page-btn"],
           "center-flex",
           "standard-button",
+          "plain-border",
           (currentPage === 1) && "standard-button-disabled"
         )}
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         <img
-          src={getPreviousIcon()}
+          src={previous}
           height="25px"
           width="25px"
           alt="Previous Icon"
         />
       </button>
-      <span className={styles["page-info"]}>
+      <span>
         Page {currentPage} of {totalPages}
       </span>
       <button
@@ -36,12 +38,13 @@ function TodoPageNav({ currentPage, totalPages, setCurrentPage }) {
           styles["page-btn"],
           "center-flex",
           "standard-button",
+          "plain-border",
           (currentPage === totalPages) && "standard-button-disabled"
         )}
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <img src={getNextIcon()} height="25px" width="25px" alt="Next Icon" />
+        <img src={next} height="25px" width="25px" alt="Next Icon" />
       </button>
     </div>
   );

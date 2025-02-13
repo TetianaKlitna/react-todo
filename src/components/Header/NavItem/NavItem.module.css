@@ -5,6 +5,13 @@
   padding: 10px;
 
   text-decoration: none;
+
+  background-color: var(--bg-link-image);
+  color: var(--color-link-image);
+}
+
+.link-img:focus {
+  text-decoration: none; 
 }
 
 .nav-img {
