@@ -156,7 +156,7 @@ const TodoForm = ({
             className={clsx(styles["btn"], "standard-button", "center-flex")}
             type="button"
             id="closeButton"
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/react-todo/")}
           >
             Close
           </button>
