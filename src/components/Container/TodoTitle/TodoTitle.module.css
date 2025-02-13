@@ -10,21 +10,21 @@
 }
 
 .todo-title{
-    flex-grow: 1; /* Take up remaining space */
+    flex: 3; 
     display: flex;
     gap: 10px;
     cursor: pointer;
 }
 
 .todo-done{
-    width: 10%;
+    flex: 0.8;
     display: flex;
     gap: 10px;
     cursor: pointer;
 }
 
 .todo-column{
-    width: 15%;
+    flex: 1.5;
     display: flex;
     gap: 10px;
     cursor: pointer;

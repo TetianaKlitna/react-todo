@@ -44,6 +44,7 @@ function TodoTitle({sortOrder, onSortClick}){
                             ' ')
                     }</span>
                 </th>
+                <th style={{width:'20%'}}></th>
             </tr>
         </thead>
     );

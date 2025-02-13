@@ -8,7 +8,7 @@ import useApi from "../../hooks/useApi.jsx";
 
 function TodoListContainer() {
   const [searchTerm, setSearchTerm] = useState("");
-  const { todoList, isLoading, isError, deleteData, doneData, updateData } = useApi();
+  const { todoList, isLoading, isError, deleteData, doneData } = useApi();
 
   const handleRemoveTodo = (todo) => {
     deleteData(todo);

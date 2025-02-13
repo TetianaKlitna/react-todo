@@ -25,7 +25,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
   };
 
   return (
-    <Fragment>
+    <div className={styles["center-flex"]}>
       {/* Visible in mobile and tablet views */}
       <input type="checkbox" id={styles["hamburger-btns"]} />
 
@@ -36,12 +36,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
             className={clsx(styles["nav-btn"], "todo-btn", "center-flex")}
             onClick={handleViewClick}
           >
-            <img
-              src={view}
-              height="20px"
-              width="20px"
-              alt="View Item Icon"
-            />
+            <img src={view} height="20px" width="20px" alt="View Item Icon" />
             <span>View</span>
           </button>
         </li>
@@ -57,12 +52,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
             disabled={todo.completedAt}
             onClick={handleEditClick}
           >
-            <img
-              src={edit}
-              height="20px"
-              width="20px"
-              alt="Edit Item Icon"
-            />
+            <img src={edit} height="20px" width="20px" alt="Edit Item Icon" />
             <span>Edit</span>
           </button>
         </li>
@@ -82,7 +72,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
           </button>
         </li>
       </ul>
-    </Fragment>
+    </div>
   );
 }
 

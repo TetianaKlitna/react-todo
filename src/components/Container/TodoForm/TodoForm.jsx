@@ -32,7 +32,14 @@ const TodoForm = ({
   const navigate = useNavigate();
 
   const handleInputChange = (event) => {
+
     const { name, value } = event.target;
+
+    if(name === 'priority'){
+      const  message = !['Low', 'Medium', 'High'].includes(value)? 'Please select a valid option: Low, Medium, or High': ''; 
+      event.target.setCustomValidity(message);
+    }
+
     const newTodo = {
       ...todo,
       [name]: value,
