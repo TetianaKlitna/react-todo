@@ -15,7 +15,7 @@ function NavMenu({ activeItemMenu }) {
       <ul className={clsx(styles["nav-menu-items"], "no-style-list")}>
         <li>
           <NavItem
-            path="/"
+            path="/react-todo"
             isActive={activeItemMenu === "home"}
             text="Go Home"
             imgIcon={home}
@@ -24,7 +24,7 @@ function NavMenu({ activeItemMenu }) {
         </li>
         <li>
           <NavItem
-            path="/new"
+            path="/react-todo/new"
             isActive={activeItemMenu === "add"}
             text="Create ToDo"
             imgIcon={add}
