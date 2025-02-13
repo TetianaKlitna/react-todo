@@ -1,17 +1,17 @@
 .dark-theme {
-  --three-dot-menu-url: url("src/assets/dark-menu-btn.svg");
-  --three-dot-close-menu-url: url("src/assets/dark-close-menu-btn.svg");
+  --three-dot-menu-url: url("../assets/dark-menu-btn.svg");
+  --three-dot-close-menu-url: url("../assets/dark-close-menu-btn.svg");
 
-  --hamburger-menu-url: url("src/assets/dark-menu-img.svg");
-  --hamburger-close-menu-url: url("src/assets/dark-close-menu.svg");
+  --hamburger-menu-url: url("../assets/dark-menu-img.svg");
+  --hamburger-close-menu-url: url("../assets/dark-close-menu.svg");
 
-  --todo-item: url("src/assets/dark-todo-img.svg");
-  --done-todo-item: url("src/assets/dark-todo-done-img.svg");
+  --todo-item: url("../assets/dark-todo-img.svg");
+  --done-todo-item: url("../assets/dark-todo-done-img.svg");
 
-  --sort-asc-list: url("src/assets/dark-sort-asc.svg");
-  --sort-desc-list: url("src/assets/dark-sort-desc.svg");
+  --sort-asc-list: url("../assets/dark-sort-asc.svg");
+  --sort-desc-list: url("../assets/dark-sort-desc.svg");
 
-  --bg-img-url: url("src/assets/dark-bg.jpg");
+  --bg-img-url: url("../assets/dark-bg.jpg");
   --bg-color: rgba(30, 30, 30, 0.5); /*#1e1e1e*/
   --base-color:white;
 
@@ -57,7 +57,7 @@
   --input-text-color: white;
   --input-text-bg: #1e1e1e;
   
-  --img-toogle-theme: url("src/assets/light-mode.svg");
+  --img-toogle-theme: url("../assets/light-mode.svg");
   --bg-toogle-theme: #B3B7FF;
 
   --bg-footer: #555555;

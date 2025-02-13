@@ -1,17 +1,17 @@
 .light-theme {
-  --three-dot-menu-url: url("src/assets/light-menu-btn.svg");
-  --three-dot-close-menu-url: url("src/assets/light-close-menu-btn.svg");
+  --three-dot-menu-url: url("../assets/light-menu-btn.svg");
+  --three-dot-close-menu-url: url("../assets/light-close-menu-btn.svg");
 
-  --hamburger-menu-url: url("src/assets/light-menu-img.svg");
-  --hamburger-close-menu-url: url("src/assets/light-close-menu.svg");
+  --hamburger-menu-url: url("../assets/light-menu-img.svg");
+  --hamburger-close-menu-url: url("../assets/light-close-menu.svg");
 
-  --todo-item: url("src/assets/light-todo-img.svg");
-  --done-todo-item: url("src/assets/light-todo-done-img.svg");
+  --todo-item: url("../assets/light-todo-img.svg");
+  --done-todo-item: url("../assets/light-todo-done-img.svg");
 
-  --sort-asc-list: url("src/assets/light-sort-asc.svg");
-  --sort-desc-list: url("src/assets/light-sort-desc.svg");
+  --sort-asc-list: url("../assets/light-sort-asc.svg");
+  --sort-desc-list: url("../assets/light-sort-desc.svg");
 
-  --bg-img-url: url("src/assets/light-bg-img.svg");
+  --bg-img-url: url("../assets/light-bg-img.svg");
  
   --bg-color:  rgba(219, 252, 176, 0.5); /*#bfe7d7*/
   --base-color:#2c5583;
@@ -56,7 +56,7 @@
   --input-text-color: #2c5583;
   --input-text-bg:white;
   
-  --img-toogle-theme: url("src/assets/dark-mode.svg");
+  --img-toogle-theme: url("../assets/dark-mode.svg");
   --bg-toogle-theme: #4ec443;
 
   --bg-footer: white; 
