@@ -9,11 +9,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<TodoPage />} />
-        <Route path="/new" element={<AddTodoPage />} />
-        <Route path="/view-todo-details/:id" element={<ViewTodoDetails />} />
-        <Route path="/edit-todo-details/:id" element={<EditTodoDetails />} />
-        <Route path="/*" element={<NotFoundPage />} />
+        <Route path="/react-todo" element={<TodoPage />} />
+        <Route path="/react-todo/new" element={<AddTodoPage />} />
+        <Route path="/react-todo/view-todo-details/:id" element={<ViewTodoDetails />} />
+        <Route path="/react-todo/edit-todo-details/:id" element={<EditTodoDetails />} />
+        <Route path="/react-todo/*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
