@@ -1,8 +1,28 @@
-# React + Vite
+#Project Name: Ibis ToDo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#Technologies Used:
+    React + Vite
+    Airtable
+    React Router
+    CLSX
+    PropTypes
 
-Currently, two official plugins are available:
+#Installation:
+Clone the repository:
+git clone https://github.com/your-username/react-todo.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Navigate into the project directory:
+cd react-todo
+
+Install dependencies:
+npm install
+
+Set up Airtable:
+Create an Airtable account if you don’t have one, and set up a new base.
+Add your Airtable API key and base ID into the project’s environment variables (local.env file).
+
+Run the application: 
+npm run dev
+
+The app will be available at http://localhost:3000.
+

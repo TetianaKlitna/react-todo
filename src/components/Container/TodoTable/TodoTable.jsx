@@ -4,7 +4,7 @@ import { Fragment, useState, useEffect } from "react";
 
 import useStorageState from "../../../hooks/useStorageState";
 
-import TodoTitle from "../TodoTitle/TodoTitle";
+import TodoTitle from "../TodoItem/TodoTitle";
 import TodoItem from "../TodoItem/TodoItem";
 import TodoPageNav from "../TodoPageNav/TodoPageNav";
 
@@ -14,7 +14,7 @@ import {
   sortByString,
 } from "../../../utils/sort";
 
-const TodoTable = ({ todoList, todosPerPage, onRemoveItem, onDoneItem}) => {
+const TodoTable = ({ todoList, todosPerPage, onRemoveItem, onDoneItem }) => {
   const [sortOrder, setSortOrder] = useState({ column: null, direction: null });
   const [currentPage, setCurrentPage] = useStorageState("currentPage", 1);
   const [totalPages, setTotalPages] = useState(
@@ -53,11 +53,13 @@ const TodoTable = ({ todoList, todosPerPage, onRemoveItem, onDoneItem}) => {
   return (
     <Fragment>
       <table className={styles["todo-table"]}>
-        <TodoTitle
-          sortOrder={sortOrder}
-          setSortOrder={setSortOrder}
-          onSortClick={handleSortEvent}
-        />
+        <thead>
+          <TodoTitle
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
+            onSortClick={handleSortEvent}
+          />
+        </thead>
         <tbody>
           {getItemsForCurrentPage().map((task) => (
             <TodoItem

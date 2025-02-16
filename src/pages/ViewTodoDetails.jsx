@@ -7,7 +7,7 @@ import TodoForm from "../components/Container/TodoForm/TodoForm.jsx";
 const activeItemMenu = "view";
 
 const isReadOnly = true;
-const titleText = "View To-Do Details:";
+const titleHeaderText = "View To-Do Details:";
 const titleSubmitBtn = "Done";
 
 function ViewTodoDetails() {
@@ -26,7 +26,7 @@ function ViewTodoDetails() {
           from={activeItemMenu}
           initialTodo={todos}
           isReadOnly={isReadOnly}
-          titleText={titleText}
+          titleHeaderText={titleHeaderText}
           titleSubmitBtn={titleSubmitBtn}
         />
       </div>

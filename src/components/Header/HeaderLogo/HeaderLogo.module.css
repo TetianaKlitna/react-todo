@@ -4,6 +4,8 @@
   font-family: "Permanent Marker", serif;
   font-weight: normal;
   font-size: 2rem;
+
+  cursor: default;
 }
 
 /* styles for desktops*/
