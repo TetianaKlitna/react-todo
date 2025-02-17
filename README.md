@@ -13,7 +13,7 @@
 
 You can access the live version of the application at the following URL:
 
-**Ibis ToDo List App** [Live Demo](https://tetianaklitna.github.io/react-todo/)
+**Ibis ToDo List App** https://tetianaklitna.github.io/react-todo/
 
 ---
 
