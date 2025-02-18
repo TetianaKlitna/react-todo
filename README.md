@@ -42,7 +42,7 @@ You can access the live version of the application at the following URL:
     npm run dev
     ```
 
-    The app will be available at `http://localhost:3000`.
+    The app will be available at `http://localhost:5173`.
 
 ---
 
