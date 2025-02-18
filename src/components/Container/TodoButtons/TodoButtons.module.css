@@ -1,7 +1,7 @@
 .center-flex {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:flex-end;
 }
 /*-- image as a checkbox in CSS----*/
 #hamburger-btns {
@@ -23,12 +23,12 @@
 }
 
 .nav-btn {
-  width: 100px;
+  width: 70px;
 
   cursor: pointer;
 
   gap: 10px;
-  padding: 10px 20px;
+  padding: 5px 5px;
 }
 
 .nav-btn:hover:not(:disabled) {
@@ -56,22 +56,25 @@
   .center-flex {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 }
 
 /*styles for tablets*/
 @media (min-width: 801px) and (max-width: 1070px) {
-  #hamburger-btns {
-    display: none;
-  }
-  .nav-btns {
+  #hamburger-btns:checked ~ .nav-btns {
     display: flex;
+    flex-direction: column;
+  }
+
+  .nav-btns {
+    display: none;
   }
   .center-flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 }
 
@@ -89,6 +92,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 }

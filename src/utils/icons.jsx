@@ -8,6 +8,7 @@ import nextIcon from "../assets/next.svg";
 import searchIcon from "../assets/search-btn.svg";
 import showAllIcon from "../assets/remove-filter-btn.svg";
 import editIcon from "../assets/edit-btn.svg";
+import doneIcon from "../assets/done-btn.svg";
 
 export const icons = {
     header: headerIcon,
@@ -20,4 +21,5 @@ export const icons = {
     next: nextIcon,
     search: searchIcon,
     showAll: showAllIcon,
+    done: doneIcon,
 };

@@ -1,7 +1,6 @@
 import styles from "./TodoButtons.module.css";
 import PropTypes from "prop-types";
 
-import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { icons } from "../../../utils/icons";
@@ -37,7 +36,6 @@ function TodoButtons({ todo, onRemoveTodo }) {
             onClick={handleViewClick}
           >
             <img src={view} height="20px" width="20px" alt="View Item Icon" />
-            <span>View</span>
           </button>
         </li>
 
@@ -53,7 +51,6 @@ function TodoButtons({ todo, onRemoveTodo }) {
             onClick={handleEditClick}
           >
             <img src={edit} height="20px" width="20px" alt="Edit Item Icon" />
-            <span>Edit</span>
           </button>
         </li>
 
@@ -68,7 +65,6 @@ function TodoButtons({ todo, onRemoveTodo }) {
               width="20px"
               alt="Remove Item Icon"
             />
-            <span>Delete</span>
           </button>
         </li>
       </ul>

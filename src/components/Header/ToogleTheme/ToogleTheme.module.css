@@ -14,6 +14,10 @@
     background-image: var(--img-toogle-theme);
 }
 
+.lbl {
+  cursor: pointer;
+}
+
 .toogle-position{
   display: flex;
   align-items: center;

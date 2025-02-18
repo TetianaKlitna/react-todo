@@ -6,7 +6,7 @@ import TodoForm from "../components/Container/TodoForm/TodoForm.jsx";
 
 const activeItemMenu = "edit";
 
-const titleText = "Edit To-Do Details:";
+const titleHeaderText = "Edit To-Do Details:";
 const titleSubmitBtn = "Save";
 
 function EditTodoDetails() {
@@ -24,7 +24,7 @@ function EditTodoDetails() {
         <TodoForm
           from={activeItemMenu}
           initialTodo={todos}
-          titleText={titleText}
+          titleHeaderText={titleHeaderText}
           titleSubmitBtn={titleSubmitBtn}
         />
       </div>

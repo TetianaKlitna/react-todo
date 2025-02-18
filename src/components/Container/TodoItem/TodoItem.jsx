@@ -7,7 +7,7 @@ import TodoButtons from "../TodoButtons/TodoButtons";
 
 const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
   return (
-    <tr className={clsx(styles.item, "plain-border")}>
+    <tr className={clsx(styles.item, "plain-border" )}>
       <td
         className={clsx(
           styles["todo-done"],
@@ -23,7 +23,7 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
       </td>
       <td
         className={clsx(
-          styles["todo-column"],
+          styles["todo-column"] ,
           item.completedAt && styles["todo-completed"]
         )}
       >
@@ -46,7 +46,7 @@ const TodoListItem = ({ item, onRemoveTodo, onDoneTodo }) => {
       >
         {item.title}
       </td>
-      <td style={{width:'20%'}}>
+      <td className={styles["todo-btns"]}>
         <TodoButtons todo={item} onRemoveTodo={onRemoveTodo} />
       </td>
     </tr>
