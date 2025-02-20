@@ -12,10 +12,11 @@ const InputWithLabel = forwardRef(function InputWithLabel(
     value,
     children,
     isFocused = false,
+    isRequired = true,
     placeholder,
     list,
     onChange,
-    isReadOnly=false
+    isReadOnly = false,
   },
   ref
 ) {
@@ -25,11 +26,23 @@ const InputWithLabel = forwardRef(function InputWithLabel(
     }
   }, [isFocused]);
 
+  const requiredAsterisk = isRequired && (
+    <span style={{ color: "red" }}>*</span>
+  );
+
   return (
     <div className={styles["label-input"]}>
-      {children && <label className={styles["lbl"]} htmlFor={id}>{children} <span style={{ color: 'red' }}>*</span></label>}
+      {children && (
+        <label className={styles["lbl"]} htmlFor={id}>
+          {children} {requiredAsterisk}
+        </label>
+      )}
       <input
-        className={clsx(isReadOnly && styles.readonly, "plain-border", styles["input-text"])}
+        className={clsx(
+          isReadOnly && styles.readonly,
+          "plain-border",
+          styles["input-text"]
+        )}
         ref={ref}
         id={id}
         name={name}
@@ -39,7 +52,7 @@ const InputWithLabel = forwardRef(function InputWithLabel(
         list={list}
         onChange={onChange}
         readOnly={isReadOnly}
-        required
+        required={isRequired}
       />
     </div>
   );
@@ -59,6 +72,7 @@ InputWithLabel.propTypes = {
   value: PropTypes.string,
   children: PropTypes.node,
   isFocused: PropTypes.bool,
+  isRequired: PropTypes.bool,
   placeholder: PropTypes.string,
   list: PropTypes.string,
   onChange: PropTypes.func,

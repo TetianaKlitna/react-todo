@@ -29,9 +29,10 @@ function SearchForm({ setSearchTerm }) {
       <InputWithLabel
         id={styles["search"]}
         value={currentInput}
+        isRequired={false}
         placeholder="Enter your search term"
         onChange={(e) => setCurrentInput(e.target.value)}
-      ></InputWithLabel>
+      >Search:</InputWithLabel>
       <button
         className={clsx(
           styles["btn"],
