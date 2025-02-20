@@ -34,6 +34,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
           <button
             className={clsx(styles["nav-btn"], "todo-btn", "center-flex")}
             onClick={handleViewClick}
+            aria-label="View"
           >
             <img src={view} height="20px" width="20px" alt="View Item Icon" />
           </button>
@@ -49,6 +50,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
             )}
             disabled={todo.completedAt}
             onClick={handleEditClick}
+            aria-label="Edit"
           >
             <img src={edit} height="20px" width="20px" alt="Edit Item Icon" />
           </button>
@@ -64,6 +66,7 @@ function TodoButtons({ todo, onRemoveTodo }) {
               height="20px"
               width="20px"
               alt="Remove Item Icon"
+              aria-label="Remove"
             />
           </button>
         </li>
