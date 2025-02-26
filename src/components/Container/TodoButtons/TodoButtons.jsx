@@ -12,13 +12,13 @@ function TodoButtons({ todo, onRemoveTodo }) {
   const navigate = useNavigate();
 
   const handleViewClick = () => {
-    navigate(`/react-todo/view-todo-details/${todo.id}`, {
+    navigate(`view-todo-details/${todo.id}`, {
       state: { todos: todo },
     });
   };
 
   const handleEditClick = () => {
-    navigate(`/react-todo/edit-todo-details/${todo.id}`, {
+    navigate(`edit-todo-details/${todo.id}`, {
       state: { todos: todo },
     });
   };
