@@ -1,5 +1,4 @@
 import styles from "./NavMenu.module.css";
-import PropTypes from "prop-types";
 
 import clsx from "clsx";
 
@@ -7,7 +6,7 @@ import NavItem from "../NavItem/NavItem";
 
 import { icons } from "../../../utils/icons";
 
-function NavMenu({ activeItemMenu }) {
+function NavMenu() {
   const { home, add } = icons;
   return (
     <nav>
@@ -15,31 +14,24 @@ function NavMenu({ activeItemMenu }) {
       <ul className={clsx(styles["nav-menu-items"], "no-style-list")}>
         <li>
           <NavItem
-            path="/react-todo"
-            isActive={activeItemMenu === "home"}
+            path="."
             text="Go Home"
             imgIcon={home}
             altText="Return to Homepage Icon"
+            isActive
           />
         </li>
         <li>
           <NavItem
-            path="/react-todo/new"
-            isActive={activeItemMenu === "add"}
+            path="new"
             text="Create ToDo"
             imgIcon={add}
             altText="Add New Todo Icon"
-            width="30px"
-            height="30px"
           />
         </li>
       </ul>
     </nav>
   );
 }
-
-NavMenu.propTypes = {
-  activeItemMenu: PropTypes.string,
-};
 
 export default NavMenu;
