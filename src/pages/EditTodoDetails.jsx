@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import TodoForm from "../components/Container/TodoForm/TodoForm.jsx";
+import NotFoundPage from "./NotFoundPage.jsx";
 
 const activeItemMenu = "edit";
 
@@ -12,7 +13,7 @@ function EditTodoDetails() {
   const { todos } = location.state || {};
 
   if (!todos) {
-    return <div>No Todo details found</div>;
+    return <NotFoundPage />;
   }
 
   return (
